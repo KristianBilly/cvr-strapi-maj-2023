@@ -3,12 +3,16 @@ import { SearchResults } from 'components/search/search-results'
 import { useSiteContext } from 'context/site-context'
 import contentData from 'constants/database.json'
 import { useTranslate } from 'translations/useTranslate'
+import { API_ENDPOINT_COMAPNIES } from '../../constants/constants'
+import { getLocalisedData } from '../../utils/get-localised-data'
 
 const allCompanies = contentData.companiesData
 
-const SearchWrapper = () => {
+const SearchWrapper = ({ companies }) => {
   const { searchField, setSearchField } = useSiteContext()
   const { t } = useTranslate()
+
+  const localisedCompanies = getLocalisedData(companies)
 
   return (
     <div className="search">
@@ -22,10 +26,24 @@ const SearchWrapper = () => {
           onChange={(e) => setSearchField(e.target.value)}
           autoFocus
         />
-        <SearchResults allCompanies={allCompanies} />
+        <SearchResults
+          allCompanies={allCompanies}
+          localisedCompanies={localisedCompanies}
+        />
       </div>
     </div>
   )
+}
+
+export async function getStaticProps() {
+  const response = await fetch(API_ENDPOINT_COMAPNIES)
+  const companies = await response.json()
+
+  return {
+    props: {
+      companies,
+    },
+  }
 }
 
 export default SearchWrapper

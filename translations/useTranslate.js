@@ -17,11 +17,26 @@ export const useTranslate = () => {
     return locales[locale]
   }, [locale])
 
+  const checkIfKeyExist = (objectName, keyName) => {
+    let keyExist = Object.keys(objectName).some((key) => key === keyName)
+    return keyExist
+  }
+
   const t = (translationKey) => {
+    const isNotATranslationKey = !checkIfKeyExist(
+      languageStrings,
+      translationKey
+    )
+
+    if (isNotATranslationKey) {
+      return translationKey
+    }
+
     return (
       languageStrings[translationKey] ||
       `Missing translation for key: ${translationKey} (${locale})`
     )
   }
+
   return { t }
 }

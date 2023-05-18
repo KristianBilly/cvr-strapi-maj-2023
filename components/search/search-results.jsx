@@ -4,7 +4,7 @@ import { useSiteContext } from 'context/site-context'
 import { getConvertedSearchData, getFilteredCompanies } from 'utils'
 import { useTranslate } from 'translations/useTranslate'
 
-export const SearchResults = ({ allCompanies }) => {
+export const SearchResults = ({ localisedCompanies }) => {
   const {
     searchField,
     companies,
@@ -14,10 +14,14 @@ export const SearchResults = ({ allCompanies }) => {
   } = useSiteContext()
   const { t } = useTranslate()
 
+  const companiesToDisplay = localisedCompanies.map(
+    (company) => company.attributes
+  )
+
   useEffect(() => {
     isSearchFieldEmpty
-      ? setCompanies(allCompanies)
-      : setCompanies(getFilteredCompanies(searchField, allCompanies))
+      ? setCompanies(companiesToDisplay)
+      : setCompanies(getFilteredCompanies(searchField, companiesToDisplay))
   }, [searchField])
 
   if (!isCompaniesFound && !isSearchFieldEmpty)
@@ -27,7 +31,7 @@ export const SearchResults = ({ allCompanies }) => {
     return (
       <div>
         {companies.map((company, index) => {
-          const convertedData = getConvertedSearchData({ ...company })
+          const convertedData = getConvertedSearchData(company)
 
           return (
             <SearchCompany

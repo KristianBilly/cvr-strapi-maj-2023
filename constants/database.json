@@ -44,55 +44,6 @@
       "className": "first-link"
     }
   ],
-  "virkopediaData": [
-    {
-      "title": "virkopedia.title.acquisition",
-      "content": "virkopedia.content.aquisition"
-    },
-    {
-      "title": "virkopedia.title.advance",
-      "content": "virkopedia.content.profit"
-    },
-    {
-      "title": "virkopedia.title.annuity",
-      "content": "virkopedia.content.the_term"
-    },
-    {
-      "title": "virkopedia.title.asset",
-      "content": "virkopedia.content.an_asset"
-    },
-    {
-      "title": "virkopedia.title.atp_contribution",
-      "content": "virkopedia.content.atp_contribution"
-    },
-    {
-      "title": "virkopedia.title.beta",
-      "content": "virkopedia.content.beta"
-    }
-  ],
-  "landingPageData": [
-    {
-      "numberOfColumns": "placeholders.number.of.columns.row.one",
-      "titleColumnOne": "placeholders.title.column.one.row.one",
-      "contentColumnOne": "placeholders.content.column.one.row.one",
-      "titleColumnTwo": "placeholders.title.column.two.row.one",
-      "contentColumnTwo": "placeholders.content.column.two.row.one",
-      "titleColumnThree": "placeholders.title.column.three.row.one",
-      "contentColumnThree": "placeholders.content.column.three.row.one"
-    },
-    {
-      "numberOfColumns": "placeholders.number.of.columns.row.two",
-      "titleColumnOne": "placeholders.title.column.one.row.two",
-      "contentColumnOne": "placeholders.content.column.one.row.two",
-      "titleColumnTwo": "placeholders.title.column.two.row.two",
-      "contentColumnTwo": "placeholders.content.column.two.row.two"
-    },
-    {
-      "numberOfColumns": "placeholders.number.of.columns.row.three",
-      "titleColumnOne": "placeholders.title.column.one.row.three",
-      "contentColumnOne": "placeholders.content.column.one.row.three"
-    }
-  ],
   "companiesData": [
     {
       "uid": "0",
