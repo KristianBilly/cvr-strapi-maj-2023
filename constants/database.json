@@ -43,52 +43,5 @@
       ],
       "className": "first-link"
     }
-  ],
-  "companiesData": [
-    {
-      "uid": "0",
-      "cvrNumber": "company.cvrnumber",
-      "companyName": "company.name",
-      "address": "company.address",
-      "postNoCity": "comapny.postno.city",
-      "companyType": "company.type",
-      "status": "comapny.status"
-    },
-    {
-      "uid": "1",
-      "cvrNumber": "company.cvrnumber",
-      "companyName": "company.name",
-      "address": "company.address",
-      "postNoCity": "comapny.postno.city",
-      "companyType": "company.type",
-      "status": "comapny.status"
-    },
-    {
-      "uid": "2",
-      "cvrNumber": "company.cvrnumber",
-      "companyName": "company.name",
-      "address": "company.address",
-      "postNoCity": "comapny.postno.city",
-      "companyType": "company.type",
-      "status": "comapny.status"
-    },
-    {
-      "uid": "3",
-      "cvrNumber": "company.cvrnumber",
-      "companyName": "company.name",
-      "address": "company.address",
-      "postNoCity": "comapny.postno.city",
-      "companyType": "company.type",
-      "status": "comapny.status"
-    },
-    {
-      "uid": "4",
-      "cvrNumber": "company.cvrnumber",
-      "companyName": "company.name",
-      "address": "company.address",
-      "postNoCity": "comapny.postno.city",
-      "companyType": "company.type",
-      "status": "comapny.status"
-    }
   ]
 }

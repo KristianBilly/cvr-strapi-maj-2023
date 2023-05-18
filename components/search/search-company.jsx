@@ -2,13 +2,13 @@ import Link from 'next/link'
 import { useTranslate } from 'translations/useTranslate'
 import data from 'translations/en.json'
 
-export const SearchCompany = ({ convertedData, index }) => {
+export const SearchCompany = ({ convertedData, uid }) => {
   const { t } = useTranslate()
 
   return (
     <Link
       className="search-company"
-      href={`/company/${index}`}>
+      href={`/company/${uid}`}>
       <article className="search-article">
         {convertedData.map(({ title, paragraphOne, paragraphTwo }, index) => {
           return (

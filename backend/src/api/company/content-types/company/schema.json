@@ -24,14 +24,6 @@
       },
       "type": "string"
     },
-    "uid": {
-      "pluginOptions": {
-        "i18n": {
-          "localized": true
-        }
-      },
-      "type": "string"
-    },
     "cvrNumber": {
       "pluginOptions": {
         "i18n": {
@@ -71,6 +63,15 @@
         }
       },
       "type": "string"
+    },
+    "uid": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "type": "string",
+      "required": true
     }
   }
 }

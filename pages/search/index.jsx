@@ -1,12 +1,9 @@
 import { TextInput } from 'components/other/text-input'
 import { SearchResults } from 'components/search/search-results'
 import { useSiteContext } from 'context/site-context'
-import contentData from 'constants/database.json'
 import { useTranslate } from 'translations/useTranslate'
 import { API_ENDPOINT_COMAPNIES } from '../../constants/constants'
 import { getLocalisedData } from '../../utils/get-localised-data'
-
-const allCompanies = contentData.companiesData
 
 const SearchWrapper = ({ companies }) => {
   const { searchField, setSearchField } = useSiteContext()
@@ -26,10 +23,7 @@ const SearchWrapper = ({ companies }) => {
           onChange={(e) => setSearchField(e.target.value)}
           autoFocus
         />
-        <SearchResults
-          allCompanies={allCompanies}
-          localisedCompanies={localisedCompanies}
-        />
+        <SearchResults localisedCompanies={localisedCompanies} />
       </div>
     </div>
   )

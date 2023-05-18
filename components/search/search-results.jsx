@@ -30,13 +30,13 @@ export const SearchResults = ({ localisedCompanies }) => {
   if (isCompaniesFound)
     return (
       <div>
-        {companies.map((company, index) => {
+        {companies.map((company) => {
           const convertedData = getConvertedSearchData(company)
 
           return (
             <SearchCompany
-              key={index}
-              index={index}
+              key={company.uid}
+              uid={company.uid}
               convertedData={convertedData}
             />
           )

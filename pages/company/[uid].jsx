@@ -4,6 +4,7 @@ import Link from 'next/link'
 import { SEARCH_PATH } from 'constants/constants'
 import contentData from 'constants/database.json'
 import { useTranslate } from 'translations/useTranslate'
+import { API_ENDPOINT_COMAPNIES } from '../../constants/constants'
 
 const Company = ({ selectedCompany }) => {
   const { t } = useTranslate()
@@ -27,8 +28,13 @@ const Company = ({ selectedCompany }) => {
 }
 
 export const getStaticProps = async ({ params }) => {
-  const companies = contentData.companiesData
-  const selectedCompany = companies[params.uid]
+  const response = await fetch(API_ENDPOINT_COMAPNIES)
+  const companies = await response.json()
+  const mappedCompanies = companies.data.map((company) => company.attributes)
+
+  const selectedCompany = mappedCompanies?.find(
+    (company) => company.uid === params.uid
+  )
 
   return {
     props: {
@@ -37,14 +43,19 @@ export const getStaticProps = async ({ params }) => {
   }
 }
 
-export async function getStaticPaths() {
-  const companies = contentData.companiesData
+export async function getStaticPaths({ locales }) {
+  const response = await fetch(API_ENDPOINT_COMAPNIES)
+  const companies = await response.json()
+  const mappedCompanies = companies.data.map((company) => company.attributes)
 
-  const paths = companies.map(({ uid }) => {
-    return {
-      params: { uid },
-    }
-  })
+  const paths = mappedCompanies
+    .map(({ uid }) =>
+      locales.map((locale) => ({
+        params: { uid },
+        locale,
+      }))
+    )
+    .flat()
 
   return {
     paths: paths,
