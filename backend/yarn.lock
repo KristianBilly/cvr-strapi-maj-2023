@@ -2110,7 +2110,7 @@
     react-intl "6.4.1"
     yup "^0.32.9"
 
-"@strapi/plugin-i18n@4.10.4":
+"@strapi/plugin-i18n@^4.10.4":
   version "4.10.4"
   resolved "https://registry.npmjs.org/@strapi/plugin-i18n/-/plugin-i18n-4.10.4.tgz"
   integrity sha512-+qkRpzRRUk+XP3l8g7IC+RtrzbdMSmuAa8YxyuOeZt1QI2ASUwVAqc29uNduEiTpha43u8Fx1GrJN6IfI+kWUw==

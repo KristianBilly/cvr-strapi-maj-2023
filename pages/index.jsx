@@ -1,10 +1,10 @@
 import { PlaceholderRow } from 'components/placeholder/placeholder-row'
 import contentData from 'constants/database.json'
-import { API_ENDPOINT_TODOS } from '../constants/constants'
+import { API_ENDPOINT_PLACEHOLDERS } from '../constants/constants'
 
 const landingPageRows = contentData.landingPageData
 
-const Index = ({ rowData }) => {
+const Index = ({ placeholders }) => {
   return (
     <>
       {landingPageRows.map((row, index) => {
@@ -12,6 +12,7 @@ const Index = ({ rowData }) => {
           <PlaceholderRow
             key={row.contentColumnOne + index}
             row={row}
+            placeholders={placeholders}
           />
         )
       })}
@@ -20,15 +21,12 @@ const Index = ({ rowData }) => {
 }
 
 export async function getStaticProps() {
-  const response = await fetch(API_ENDPOINT_TODOS)
-  const rowData = await response.json()
-  // Axios
-  // const response = await axios.get(API_ENDPOINT_TODOS)
-  // const rowData = response.data  // This is for axios
+  const response = await fetch(API_ENDPOINT_PLACEHOLDERS)
+  const placeholders = await response.json()
 
   return {
     props: {
-      rowData,
+      placeholders,
     },
   }
 }
