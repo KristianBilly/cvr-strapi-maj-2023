@@ -1,18 +1,18 @@
 import { PlaceholderRow } from 'components/placeholder/placeholder-row'
-import contentData from 'constants/database.json'
 import { API_ENDPOINT_PLACEHOLDERS } from '../constants/constants'
-
-const landingPageRows = contentData.landingPageData
+import { getLocalisedData } from '../utils/get-localised-data'
 
 const Index = ({ placeholders }) => {
+  const localizedPlaceholders = getLocalisedData(placeholders)
+
   return (
     <>
-      {landingPageRows.map((row, index) => {
+      {localizedPlaceholders.map((row, index) => {
         return (
           <PlaceholderRow
             key={row.contentColumnOne + index}
-            row={row}
-            placeholders={placeholders}
+            row={row.attributes}
+            localizedPlaceholders={localizedPlaceholders}
           />
         )
       })}

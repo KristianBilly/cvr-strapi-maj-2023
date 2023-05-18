@@ -1,10 +1,11 @@
 {
-  "kind": "singleType",
+  "kind": "collectionType",
   "collectionName": "placeholders",
   "info": {
     "singularName": "placeholder",
     "pluralName": "placeholders",
-    "displayName": "placeholder"
+    "displayName": "placeholder",
+    "description": ""
   },
   "options": {
     "draftAndPublish": false
@@ -16,60 +17,60 @@
   },
   "attributes": {
     "numberOfColumns": {
+      "type": "integer",
       "pluginOptions": {
         "i18n": {
           "localized": true
         }
-      },
-      "type": "integer"
+      }
     },
     "titleColumnOne": {
+      "type": "string",
       "pluginOptions": {
         "i18n": {
           "localized": true
         }
-      },
-      "type": "string"
+      }
     },
     "contentColumnOne": {
+      "type": "string",
       "pluginOptions": {
         "i18n": {
           "localized": true
         }
-      },
-      "type": "string"
+      }
     },
     "titleColumnTwo": {
+      "type": "string",
       "pluginOptions": {
         "i18n": {
           "localized": true
         }
-      },
-      "type": "string"
+      }
     },
     "contentColumnTwo": {
+      "type": "string",
       "pluginOptions": {
         "i18n": {
           "localized": true
         }
-      },
-      "type": "string"
+      }
     },
     "titleColumnThree": {
+      "type": "string",
       "pluginOptions": {
         "i18n": {
           "localized": true
         }
-      },
-      "type": "string"
+      }
     },
     "contentColumnThree": {
+      "type": "string",
       "pluginOptions": {
         "i18n": {
           "localized": true
         }
-      },
-      "type": "string"
+      }
     }
   }
 }

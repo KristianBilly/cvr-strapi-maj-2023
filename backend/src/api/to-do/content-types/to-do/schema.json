@@ -14,6 +14,24 @@
   "attributes": {
     "todoText": {
       "type": "string"
+    },
+    "titleColumnOne": {
+      "type": "string"
+    },
+    "contentColumnOne": {
+      "type": "string"
+    },
+    "titleColumnTwo": {
+      "type": "string"
+    },
+    "contentColumnTwo": {
+      "type": "string"
+    },
+    "titleColumnThree": {
+      "type": "string"
+    },
+    "contentColumnThree": {
+      "type": "string"
     }
   }
 }

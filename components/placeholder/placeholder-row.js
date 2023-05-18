@@ -1,8 +1,4 @@
-import { useTranslate } from 'translations/useTranslate'
-
-export const PlaceholderRow = ({ row, placeholders }) => {
-  console.log('placeholders', placeholders.data[0].attributes)
-  console.log('row', row)
+export const PlaceholderRow = ({ row }) => {
   const {
     numberOfColumns,
     titleColumnOne,
@@ -19,17 +15,16 @@ export const PlaceholderRow = ({ row, placeholders }) => {
     titleColumnThree && { title: titleColumnThree, text: contentColumnThree },
   ]
 
-  const shouldRenderColumn = allColumns.lengh !== 0
-  const numberOfColumnsAsNumber = Number(numberOfColumns)
+  const shouldRenderColumn = allColumns.lenght !== 0
 
   return (
     shouldRenderColumn && (
       <div className="placeholder-wrapper">
-        {allColumns.slice(0, numberOfColumnsAsNumber).map((column, index) => {
+        {allColumns.slice(0, numberOfColumns).map((column, index) => {
           return (
             <div
-              key={column.title + numberOfColumnsAsNumber + index}
-              className={`placeholder-col-${numberOfColumnsAsNumber}`}>
+              key={column.title + numberOfColumns + index}
+              className={`placeholder-col-${numberOfColumns}`}>
               <h3>{column.title}</h3>
               <p>{column.text}</p>
             </div>

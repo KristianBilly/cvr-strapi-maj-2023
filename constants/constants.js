@@ -10,4 +10,4 @@ export const SEARCH_PATH = '/search'
 export const API_ENDPOINT_VIRKOPEDIA =
   'http://127.0.0.1:1337/api/virkopedias?locale=all'
 export const API_ENDPOINT_PLACEHOLDERS =
-  'http://127.0.0.1:1337/api/placeholder?locale=all'
+  'http://127.0.0.1:1337/api/placeholders?locale=all'

@@ -7,15 +7,15 @@ import { getLocalisedData } from '../../utils/get-localised-data'
 const Virkopedia = ({ articles }) => {
   const [activeButtonIndex, setActiveButtonIndex] = useState(0)
 
-  const filteredArticles = getLocalisedData(articles)
-  const { content, title } = filteredArticles[activeButtonIndex].attributes
+  const localisedArticles = getLocalisedData(articles)
+  const { content, title } = localisedArticles[activeButtonIndex].attributes
 
   return (
     <div className="virkopedia">
       <h2>Virkopedia</h2>
       <div className="virkopedia-container">
         <div className="btn-container">
-          {filteredArticles.map((article, index) => {
+          {localisedArticles.map((article, index) => {
             const { title } = article.attributes
 
             return (
