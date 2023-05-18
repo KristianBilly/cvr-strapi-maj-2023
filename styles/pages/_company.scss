@@ -1,0 +1,40 @@
+.company-page {
+  @include component-container;
+
+  .all-companies-info {
+    width: 100%;
+  }
+
+  .back-to-search {
+    @include link;
+    align-self: flex-start;
+    font-size: 0.75rem;
+    font-weight: $font-weight-light;
+  }
+
+  .company-table {
+    line-height: 1.5rem;
+    border: $border;
+    width: 100%;
+    padding: 1.5rem;
+    margin: 1rem;
+
+    .content-container {
+      margin-bottom: 1.25rem;
+      display: flex;
+
+      @include breakpoint-sm-down {
+        display: block;
+      }
+    }
+
+    .title {
+      font-weight: $font-weight-bold;
+      flex: 0 0 200px;
+
+      @include breakpoint-sm-down {
+        flex: 0 0 1;
+      }
+    }
+  }
+}

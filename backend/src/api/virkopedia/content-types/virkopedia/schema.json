@@ -1,0 +1,36 @@
+{
+  "kind": "collectionType",
+  "collectionName": "virkopedias",
+  "info": {
+    "singularName": "virkopedia",
+    "pluralName": "virkopedias",
+    "displayName": "virkopedia",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {
+    "i18n": {
+      "localized": true
+    }
+  },
+  "attributes": {
+    "title": {
+      "type": "string",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      }
+    },
+    "content": {
+      "type": "string",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,26 @@
+//Global
+@import 'global-styling';
+
+//SCSS Variables
+@import 'variables';
+
+// mixins
+@import 'components/mixins/other-mixins';
+@import 'components/mixins/button-mixins';
+@import 'components/mixins/layout-mixins';
+@import 'components/mixins/media-queries';
+
+//components
+@import 'components/layout/theme-wrapper';
+@import 'components/layout/footer';
+@import 'components/layout/header';
+@import 'components/layout/main-container';
+@import 'components/layout/navbar';
+@import 'components/other/text-input';
+@import 'components/other/text-link';
+
+//Pages
+@import 'pages/company';
+@import 'pages/virkopedia';
+@import 'pages/search';
+@import 'pages/placeholder';
