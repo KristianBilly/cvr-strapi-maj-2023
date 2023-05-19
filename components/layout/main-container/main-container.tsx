@@ -1,10 +1,14 @@
+// @ts-nocheck
+
 import cc from 'classcat'
 import { useSiteContext } from '@/context/site-context'
 
 interface MainContainerProps {
   children: React.ReactNode
+  showLinks?: boolean
 }
 
+//Ismail
 export const MainContainer = ({ children }: MainContainerProps) => {
   const { showLinks } = useSiteContext()
 

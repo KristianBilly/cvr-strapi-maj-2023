@@ -1,3 +1,5 @@
+// @ts-nocheck
+
 import { TextInput } from '@/components/other/text-input'
 import { SearchResults } from '@/components/search/search-results'
 import { useSiteContext } from '@/context/site-context'

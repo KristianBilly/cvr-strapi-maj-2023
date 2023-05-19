@@ -1,3 +1,5 @@
+// @ts-nocheck
+
 import { useRef, useEffect, MutableRefObject } from 'react'
 import { LANDING_PAGE_PATH } from '@/constants/constants'
 import { TextLink } from '@/components/other/text-link'

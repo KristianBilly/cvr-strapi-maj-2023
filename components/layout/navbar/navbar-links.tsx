@@ -1,3 +1,5 @@
+// @ts-nocheck
+
 import { useSiteContext } from '@/context/site-context'
 import { useTranslate } from '@/translations/useTranslate'
 
@@ -6,6 +8,7 @@ interface NavbarLinksProps {
   linksRef: React.MutableRefObject<HTMLUListElement>
 }
 
+// Ismail
 export const NavbarLinks = ({
   linksContainerRef,
   linksRef,

@@ -21,7 +21,7 @@
     "**/*.ts",
     "**/*.tsx",
     "utils/get-localised-data.ts",
-    "context/site-context.js"
+    "context/site-context.tsx"
   ],
   "exclude": ["node_modules"]
 }

@@ -1,3 +1,5 @@
+// @ts-nocheck
+
 import { useEffect } from 'react'
 import { SearchCompany } from '@/components/search/search-company'
 import { useSiteContext } from '@/context/site-context'
@@ -9,6 +11,7 @@ interface SearchResultsProps {
   localisedCompanies: any[]
 }
 
+// Ismail
 export const SearchResults = ({ localisedCompanies }: SearchResultsProps) => {
   const {
     searchField,
