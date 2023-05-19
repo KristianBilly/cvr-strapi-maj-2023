@@ -1,5 +1,5 @@
 import { createContext, useContext, useState } from 'react'
-import { DARK_THEME, LIGHT_THEME } from 'constants/constants'
+import { DARK_THEME, LIGHT_THEME } from '@/constants/constants'
 import { useRouter } from 'next/router'
 
 const SiteContext = createContext()

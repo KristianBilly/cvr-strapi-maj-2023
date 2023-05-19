@@ -1,5 +1,5 @@
-import { useSiteContext } from 'context/site-context'
-import { useTranslate } from 'translations/useTranslate'
+import { useSiteContext } from '@/context/site-context'
+import { useTranslate } from '@/translations/useTranslate'
 
 export const NavbarLinks = ({ linksContainerRef, linksRef }) => {
   const { isDarkTheme, toggleTheme, toggleLanguage } = useSiteContext()

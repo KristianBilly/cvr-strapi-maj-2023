@@ -5,7 +5,7 @@ const nextConfig = {
     locales: ['en', 'da'],
     defaultLocale: 'en',
   },
-  basePath: '',
+  // basePath: '',
 }
 
 module.exports = nextConfig

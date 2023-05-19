@@ -1,8 +1,9 @@
 import { useEffect } from 'react'
-import { SearchCompany } from 'components/search/search-company'
-import { useSiteContext } from 'context/site-context'
-import { getConvertedSearchData, getFilteredCompanies } from 'utils'
-import { useTranslate } from 'translations/useTranslate'
+import { SearchCompany } from '@/components/search/search-company'
+import { useSiteContext } from '@/context/site-context'
+import { getFilteredCompanies } from '@/utils/get-filtered-companies'
+import { getConvertedSearchData } from '@/utils/get-converted-search-data'
+import { useTranslate } from '@/translations/useTranslate'
 
 export const SearchResults = ({ localisedCompanies }) => {
   const {

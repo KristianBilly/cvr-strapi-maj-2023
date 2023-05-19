@@ -1,8 +1,9 @@
-import { useState } from 'react'
-import { VirkopediaArticle } from 'components/virkopedia/virkopedia-article'
-import { VirkopediaTab } from 'components/virkopedia/virkopedia-tab'
-import { API_ENDPOINT_VIRKOPEDIA } from 'constants/constants'
-import { getLocalisedData } from '../../utils/get-localised-data'
+import { FC, useState } from 'react'
+import { VirkopediaArticle } from '@/components/virkopedia/virkopedia-article'
+import { VirkopediaTab } from '@/components/virkopedia/virkopedia-tab'
+import { API_ENDPOINT_VIRKOPEDIA } from '@/constants/constants'
+import { getLocalisedData } from '@/utils/get-localised-data'
+import { GetStaticProps } from 'next'
 
 const Virkopedia = ({ articles }) => {
   const [activeButtonIndex, setActiveButtonIndex] = useState(0)
@@ -38,7 +39,7 @@ const Virkopedia = ({ articles }) => {
   )
 }
 
-export async function getStaticProps() {
+export const getStaticProps: GetStaticProps = async () => {
   const response = await fetch(API_ENDPOINT_VIRKOPEDIA)
   const articles = await response.json()
 

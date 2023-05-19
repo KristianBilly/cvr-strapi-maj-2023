@@ -1,6 +1,6 @@
 import Link from 'next/link'
-import { useTranslate } from 'translations/useTranslate'
-import contentData from 'constants/database.json'
+import { useTranslate } from '@/translations/useTranslate'
+import contentData from '@/constants/database.json'
 
 const headerData = contentData.headers
 

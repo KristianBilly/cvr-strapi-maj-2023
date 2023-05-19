@@ -1,5 +1,5 @@
 import cc from 'classcat'
-import { useSiteContext } from '/context/site-context'
+import { useSiteContext } from '@/context/site-context'
 
 export const ThemeWrapper = ({ children }) => {
   const { isDarkTheme } = useSiteContext()

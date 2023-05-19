@@ -1,10 +1,10 @@
-import { getConvertedCompanyData } from 'utils'
-import { CompanyTable } from 'components/company/company-table'
+import { getConvertedCompanyData } from '@/utils/get-converted-company-data'
+import { CompanyTable } from '@/components/company/company-table'
 import Link from 'next/link'
-import { SEARCH_PATH } from 'constants/constants'
-import contentData from 'constants/database.json'
-import { useTranslate } from 'translations/useTranslate'
+import { SEARCH_PATH } from '@/constants/constants'
+import { useTranslate } from '@/translations/useTranslate'
 import { API_ENDPOINT_COMAPNIES } from '../../constants/constants'
+import { GetStaticPaths } from 'next'
 
 const Company = ({ selectedCompany }) => {
   const { t } = useTranslate()
@@ -43,7 +43,7 @@ export const getStaticProps = async ({ params }) => {
   }
 }
 
-export async function getStaticPaths({ locales }) {
+export const getStaticPaths: GetStaticPaths = async ({ locales }) => {
   const response = await fetch(API_ENDPOINT_COMAPNIES)
   const companies = await response.json()
   const mappedCompanies = companies.data.map((company) => company.attributes)

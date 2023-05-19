@@ -1,5 +1,5 @@
 import cc from 'classcat'
-import { useSiteContext } from 'context/site-context'
+import { useSiteContext } from '@/context/site-context'
 
 export const MainContainer = ({ children }) => {
   const { showLinks } = useSiteContext()

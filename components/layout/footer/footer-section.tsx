@@ -1,4 +1,4 @@
-import { useTranslate } from 'translations/useTranslate'
+import { useTranslate } from '@/translations/useTranslate'
 
 export const FooterSection = ({ columnLinks, className }) => {
   const { t } = useTranslate()

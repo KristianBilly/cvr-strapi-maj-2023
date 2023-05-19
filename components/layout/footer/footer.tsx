@@ -1,7 +1,7 @@
-import { LANDING_PAGE_PATH } from 'constants/constants'
-import { TextLink } from 'components/other/text-link'
-import contentData from 'constants/database.json'
-import { FooterSection } from 'components/layout/footer/footer-section'
+import { LANDING_PAGE_PATH } from '@/constants/constants'
+import { TextLink } from '@/components/other/text-link'
+import contentData from '@/constants/database.json'
+import { FooterSection } from '@/components/layout/footer/footer-section'
 
 const footerData = contentData.footer
 

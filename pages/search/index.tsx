@@ -1,9 +1,10 @@
-import { TextInput } from 'components/other/text-input'
-import { SearchResults } from 'components/search/search-results'
-import { useSiteContext } from 'context/site-context'
-import { useTranslate } from 'translations/useTranslate'
-import { API_ENDPOINT_COMAPNIES } from '../../constants/constants'
-import { getLocalisedData } from '../../utils/get-localised-data'
+import { TextInput } from '@/components/other/text-input'
+import { SearchResults } from '@/components/search/search-results'
+import { useSiteContext } from '@/context/site-context'
+import { useTranslate } from '@/translations/useTranslate'
+import { API_ENDPOINT_COMAPNIES } from '@/constants/constants'
+import { getLocalisedData } from '@/utils/get-localised-data'
+import { GetStaticProps } from 'next'
 
 const SearchWrapper = ({ companies }) => {
   const { searchField, setSearchField } = useSiteContext()
@@ -29,7 +30,7 @@ const SearchWrapper = ({ companies }) => {
   )
 }
 
-export async function getStaticProps() {
+export const getStaticProps: GetStaticProps = async () => {
   const response = await fetch(API_ENDPOINT_COMAPNIES)
   const companies = await response.json()
 

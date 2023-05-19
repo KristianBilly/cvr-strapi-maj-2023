@@ -1,8 +1,8 @@
 import { useRef, useEffect } from 'react'
-import { LANDING_PAGE_PATH } from 'constants/constants'
-import { TextLink } from 'components/other/text-link'
-import { NavbarLinks } from 'components/layout/navbar/navbar-links'
-import { useSiteContext } from 'context/site-context'
+import { LANDING_PAGE_PATH } from '@/constants/constants'
+import { TextLink } from '@/components/other/text-link'
+import { NavbarLinks } from '@/components/layout/navbar/navbar-links'
+import { useSiteContext } from '@/context/site-context'
 
 export const Navbar = () => {
   const { showLinks, toggleLinks } = useSiteContext()
