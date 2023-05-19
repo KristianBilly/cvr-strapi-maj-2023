@@ -1,5 +1,14 @@
 import cc from 'classcat'
 
+interface TextInputProps {
+  placeholder: string
+  value: string
+  onChange: (e: React.ChangeEvent<HTMLInputElement>) => void
+  type: string
+  search?: boolean
+  autoFocus?: boolean
+}
+
 export const TextInput = ({
   placeholder,
   value,
@@ -7,7 +16,7 @@ export const TextInput = ({
   type,
   search,
   autoFocus,
-}) => (
+}: TextInputProps) => (
   <input
     className={cc([
       'text-input',

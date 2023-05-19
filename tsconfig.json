@@ -20,7 +20,7 @@
     "next-env.d.ts",
     "**/*.ts",
     "**/*.tsx",
-    "utils/get-localised-data.js",
+    "utils/get-localised-data.ts",
     "context/site-context.js"
   ],
   "exclude": ["node_modules"]

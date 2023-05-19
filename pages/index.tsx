@@ -3,12 +3,18 @@ import { API_ENDPOINT_PLACEHOLDERS } from '@/constants/constants'
 import { getLocalisedData } from '@/utils/get-localised-data'
 import { GetStaticProps } from 'next'
 
-const Index = ({ placeholders }) => {
+interface IndexProps {
+  placeholders: any[]
+}
+
+// Ismail, this locallisedplaceholders gives an output. If it was properly type
+// Here, row would be implied?
+const Index = ({ placeholders }: IndexProps) => {
   const localizedPlaceholders = getLocalisedData(placeholders)
 
   return (
     <>
-      {localizedPlaceholders.map((row, index) => {
+      {localizedPlaceholders.map((row: any, index: number) => {
         return (
           <PlaceholderRow
             key={row.attributes.contentColumnOne + index}

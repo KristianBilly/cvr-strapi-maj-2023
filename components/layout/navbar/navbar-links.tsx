@@ -1,7 +1,15 @@
 import { useSiteContext } from '@/context/site-context'
 import { useTranslate } from '@/translations/useTranslate'
 
-export const NavbarLinks = ({ linksContainerRef, linksRef }) => {
+interface NavbarLinksProps {
+  linksContainerRef: React.MutableRefObject<HTMLDivElement>
+  linksRef: React.MutableRefObject<HTMLUListElement>
+}
+
+export const NavbarLinks = ({
+  linksContainerRef,
+  linksRef,
+}: NavbarLinksProps) => {
   const { isDarkTheme, toggleTheme, toggleLanguage } = useSiteContext()
   const { t } = useTranslate()
 

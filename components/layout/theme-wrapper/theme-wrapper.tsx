@@ -1,7 +1,11 @@
 import cc from 'classcat'
 import { useSiteContext } from '@/context/site-context'
 
-export const ThemeWrapper = ({ children }) => {
+interface ThemeWrapperProps {
+  children: React.ReactNode
+}
+
+export const ThemeWrapper = ({ children }: ThemeWrapperProps) => {
   const { isDarkTheme } = useSiteContext()
 
   return (

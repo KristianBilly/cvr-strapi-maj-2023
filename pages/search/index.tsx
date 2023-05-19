@@ -6,7 +6,12 @@ import { API_ENDPOINT_COMAPNIES } from '@/constants/constants'
 import { getLocalisedData } from '@/utils/get-localised-data'
 import { GetStaticProps } from 'next'
 
-const SearchWrapper = ({ companies }) => {
+//Ismail: what about here. What kind of detail? is any fine?
+interface SearchWrapperProps {
+  companies: any[]
+}
+
+const SearchWrapper = ({ companies }: SearchWrapperProps) => {
   const { searchField, setSearchField } = useSiteContext()
   const { t } = useTranslate()
 

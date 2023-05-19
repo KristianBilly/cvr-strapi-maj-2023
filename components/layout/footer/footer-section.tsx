@@ -1,6 +1,14 @@
 import { useTranslate } from '@/translations/useTranslate'
 
-export const FooterSection = ({ columnLinks, className }) => {
+interface FooterSectionProps {
+  columnLinks: string[]
+  className: string
+}
+
+export const FooterSection = ({
+  columnLinks,
+  className,
+}: FooterSectionProps) => {
   const { t } = useTranslate()
 
   return (

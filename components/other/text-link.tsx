@@ -1,7 +1,13 @@
 import cc from 'classcat'
 import Link from 'next/link'
 
-export const TextLink = ({ text, path, virkdk }) => (
+interface TextLinkProps {
+  text: string
+  path: string
+  virkdk?: boolean
+}
+
+export const TextLink = ({ text, path, virkdk }: TextLinkProps) => (
   <Link
     className={cc([
       'text-link',

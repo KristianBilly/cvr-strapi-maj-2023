@@ -5,7 +5,11 @@ import { getFilteredCompanies } from '@/utils/get-filtered-companies'
 import { getConvertedSearchData } from '@/utils/get-converted-search-data'
 import { useTranslate } from '@/translations/useTranslate'
 
-export const SearchResults = ({ localisedCompanies }) => {
+interface SearchResultsProps {
+  localisedCompanies: any[]
+}
+
+export const SearchResults = ({ localisedCompanies }: SearchResultsProps) => {
   const {
     searchField,
     companies,
@@ -33,6 +37,7 @@ export const SearchResults = ({ localisedCompanies }) => {
       <div>
         {companies.map((company) => {
           const convertedData = getConvertedSearchData(company)
+          console.log(convertedData)
 
           return (
             <SearchCompany
@@ -45,5 +50,5 @@ export const SearchResults = ({ localisedCompanies }) => {
       </div>
     )
 
-  return
+  return <></>
 }

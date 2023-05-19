@@ -1,7 +1,11 @@
 import cc from 'classcat'
 import { useSiteContext } from '@/context/site-context'
 
-export const MainContainer = ({ children }) => {
+interface MainContainerProps {
+  children: React.ReactNode
+}
+
+export const MainContainer = ({ children }: MainContainerProps) => {
   const { showLinks } = useSiteContext()
 
   return (

@@ -1,4 +1,21 @@
-export const PlaceholderRow = ({ row }) => {
+interface PlaceholderRowProps {
+  row: {
+    numberOfColumns: number
+    titleColumnOne?: string
+    contentColumnOne?: string
+    titleColumnTwo?: string
+    contentColumnTwo?: string
+    titleColumnThree?: string
+    contentColumnThree?: string
+  }
+}
+
+interface allColumnsProps {
+  title?: string
+  text?: string
+}
+
+export const PlaceholderRow = ({ row }: PlaceholderRowProps) => {
   const {
     numberOfColumns,
     titleColumnOne,
@@ -9,28 +26,39 @@ export const PlaceholderRow = ({ row }) => {
     contentColumnThree,
   } = row
 
-  const allColumns = [
-    titleColumnOne && { title: titleColumnOne, text: contentColumnOne },
-    titleColumnTwo && { title: titleColumnTwo, text: contentColumnTwo },
-    titleColumnThree && { title: titleColumnThree, text: contentColumnThree },
+  const allColumns: allColumnsProps[] = [
+    { title: titleColumnOne, text: contentColumnOne },
+    { title: titleColumnTwo, text: contentColumnTwo },
+    { title: titleColumnThree, text: contentColumnThree },
   ]
 
-  const shouldRenderColumn = allColumns.lenght !== 0
+  // Ismail
+  // The code above is not what I want to use. It's the stuff beneath. I
+  // just can't type it. Is it bad design?
+  // const allColumns: allColumnsProps[] = [
+  //   titleColumnOne && { title: titleColumnOne, text: contentColumnOne },
+  //   titleColumnTwo && { title: titleColumnTwo, text: contentColumnTwo },
+  //   titleColumnThree && { title: titleColumnThree, text: contentColumnThree },
+  // ]
+
+  const shouldRenderColumn = allColumns.length !== 0
 
   return (
-    shouldRenderColumn && (
-      <div className="placeholder-wrapper">
-        {allColumns.slice(0, numberOfColumns).map((column, index) => {
-          return (
-            <div
-              key={column.title + numberOfColumns + index}
-              className={`placeholder-col-${numberOfColumns}`}>
-              <h3>{column.title}</h3>
-              <p>{column.text}</p>
-            </div>
-          )
-        })}
-      </div>
-    )
+    <>
+      {shouldRenderColumn && (
+        <div className="placeholder-wrapper">
+          {allColumns.slice(0, numberOfColumns).map((column, index) => {
+            return (
+              <div
+                key={numberOfColumns + index}
+                className={`placeholder-col-${numberOfColumns}`}>
+                <h3>{column.title}</h3>
+                <p>{column.text}</p>
+              </div>
+            )
+          })}
+        </div>
+      )}
+    </>
   )
 }

@@ -4,9 +4,18 @@ import Link from 'next/link'
 import { SEARCH_PATH } from '@/constants/constants'
 import { useTranslate } from '@/translations/useTranslate'
 import { API_ENDPOINT_COMAPNIES } from '../../constants/constants'
-import { GetStaticPaths } from 'next'
 
-const Company = ({ selectedCompany }) => {
+interface CompanyProps {
+  selectedCompany: {
+    cvrNumber: string
+    address: string
+    postNoCity: string
+    companyType: string
+    companyName: string
+  }
+}
+
+const Company = ({ selectedCompany }: CompanyProps) => {
   const { t } = useTranslate()
 
   const formattedCompany = getConvertedCompanyData(selectedCompany)
@@ -27,10 +36,22 @@ const Company = ({ selectedCompany }) => {
   )
 }
 
-export const getStaticProps = async ({ params }) => {
+interface ParamProps {
+  params: {
+    uid: string | undefined
+  }
+}
+
+// Ismail: The any[] hack. What should be placed there instead?
+// Ismail: When I give it give it egtStaticProps : GetStaticProps, and
+// ... :ParamProps then it's not happy.
+// The same with locales under, "it's possible undifined"
+// Why did I need to give it undefined above?
+export const getStaticProps = async ({ params }: ParamProps) => {
   const response = await fetch(API_ENDPOINT_COMAPNIES)
-  const companies = await response.json()
-  const mappedCompanies = companies.data.map((company) => company.attributes)
+  const data = await response.json()
+  const companies: any[] = data.data
+  const mappedCompanies = companies.map((company) => company.attributes)
 
   const selectedCompany = mappedCompanies?.find(
     (company) => company.uid === params.uid
@@ -43,10 +64,15 @@ export const getStaticProps = async ({ params }) => {
   }
 }
 
-export const getStaticPaths: GetStaticPaths = async ({ locales }) => {
+interface LocaleProps {
+  locales: string[]
+}
+
+export const getStaticPaths = async ({ locales }: LocaleProps) => {
   const response = await fetch(API_ENDPOINT_COMAPNIES)
-  const companies = await response.json()
-  const mappedCompanies = companies.data.map((company) => company.attributes)
+  const data = await response.json()
+  const companies: any[] = data.data
+  const mappedCompanies = companies.map((company) => company.attributes)
 
   const paths = mappedCompanies
     .map(({ uid }) =>

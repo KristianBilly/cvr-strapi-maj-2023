@@ -1,7 +1,16 @@
 import Link from 'next/link'
 import { useTranslate } from '@/translations/useTranslate'
 
-export const SearchCompany = ({ convertedData, uid }) => {
+interface SearchCompanyProps {
+  convertedData: {
+    title?: string
+    paragraphOne?: string
+    paragraphTwo?: string
+  }[]
+  uid: string
+}
+
+export const SearchCompany = ({ convertedData, uid }: SearchCompanyProps) => {
   const { t } = useTranslate()
 
   return (

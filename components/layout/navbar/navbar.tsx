@@ -1,4 +1,4 @@
-import { useRef, useEffect } from 'react'
+import { useRef, useEffect, MutableRefObject } from 'react'
 import { LANDING_PAGE_PATH } from '@/constants/constants'
 import { TextLink } from '@/components/other/text-link'
 import { NavbarLinks } from '@/components/layout/navbar/navbar-links'
@@ -6,8 +6,8 @@ import { useSiteContext } from '@/context/site-context'
 
 export const Navbar = () => {
   const { showLinks, toggleLinks } = useSiteContext()
-  const linksContainerRef = useRef(null)
-  const linksRef = useRef(null)
+  const linksContainerRef = useRef() as MutableRefObject<HTMLDivElement>
+  const linksRef = useRef() as MutableRefObject<HTMLUListElement>
 
   useEffect(() => {
     const linksHeight = linksRef.current.getBoundingClientRect().height
