@@ -10,9 +10,8 @@ const Index = ({ placeholders }) => {
       {localizedPlaceholders.map((row, index) => {
         return (
           <PlaceholderRow
-            key={row.contentColumnOne + index}
+            key={row.attributes.contentColumnOne + index}
             row={row.attributes}
-            localizedPlaceholders={localizedPlaceholders}
           />
         )
       })}
