@@ -1,13 +1,16 @@
+// @ts-nocheck
+// Ismail
+
 import { useRouter } from 'next/router'
-import da from 'translations/da.json'
-import en from 'translations/en.json'
+import da from '@/translations/da.json'
+import en from '@/translations/en.json'
 import { useMemo } from 'react'
 
 const locales = { da, en }
 
 export const useTranslate = () => {
   const router = useRouter()
-  const locale = router.locale || router.defaultLocale
+  const locale: string = router.locale || router.defaultLocale
 
   const languageStrings = useMemo(() => {
     if (!locales[locale]) {
@@ -17,12 +20,12 @@ export const useTranslate = () => {
     return locales[locale]
   }, [locale])
 
-  const checkIfKeyExist = (objectName, keyName) => {
+  const checkIfKeyExist = (objectName: string, keyName: string) => {
     let keyExist = Object.keys(objectName).some((key) => key === keyName)
     return keyExist
   }
 
-  const t = (translationKey) => {
+  const t = (translationKey: string) => {
     const isNotATranslationKey = !checkIfKeyExist(
       languageStrings,
       translationKey

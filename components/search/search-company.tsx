@@ -1,3 +1,4 @@
+// @ts-nocheck
 import Link from 'next/link'
 import { useTranslate } from '@/translations/useTranslate'
 
@@ -10,6 +11,7 @@ interface SearchCompanyProps {
   uid: string
 }
 
+// Ismail
 export const SearchCompany = ({ convertedData, uid }: SearchCompanyProps) => {
   const { t } = useTranslate()
 

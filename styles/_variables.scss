@@ -1,8 +1,8 @@
 //Darkmode
-$hover-color: var(--theme-hover-color);
-$box-shadow: var(--theme-border-shadow);
-$themeFontAndBorder: var(--theme-font-and-border);
-$themeBackground: var(--theme-background);
+$hover-color: rgb(101, 167, 189);
+$box-shadow: 0 0 0.6rem 0 #888888;
+$themeFontAndBorder: #282c35;
+$themeBackground: #fff;
 
 //Transition
 $transition: all 0.2s linear;

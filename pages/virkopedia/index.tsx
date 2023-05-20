@@ -1,4 +1,4 @@
-import { FC, useState } from 'react'
+import { useState } from 'react'
 import { VirkopediaArticle } from '@/components/virkopedia/virkopedia-article'
 import { VirkopediaTab } from '@/components/virkopedia/virkopedia-tab'
 import { API_ENDPOINT_VIRKOPEDIA } from '@/constants/constants'
