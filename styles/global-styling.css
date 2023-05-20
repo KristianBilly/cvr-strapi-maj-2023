@@ -1,0 +1,16 @@
+:root {
+  --theme-background: #fff;
+  --theme-font-and-border: #282c35;
+  --theme-border-shadow: 0 0 0.6rem 0 #888888;
+  --theme-hover-color: rgb(101, 167, 189);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Roboto', 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif;
+}

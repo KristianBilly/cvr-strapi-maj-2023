@@ -1,6 +1,3 @@
-//Global
-@import 'global-styling';
-
 //SCSS Variables
 @import 'variables';
 
@@ -11,7 +8,6 @@
 @import 'components/mixins/media-queries';
 
 //components
-@import 'components/layout/theme-wrapper';
 @import 'components/layout/footer';
 @import 'components/layout/header';
 @import 'components/layout/main-container';

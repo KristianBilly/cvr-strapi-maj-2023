@@ -1,7 +1,6 @@
 // @ts-nocheck
 
 import React, { createContext, useContext, useState } from 'react'
-import { DARK_THEME, LIGHT_THEME } from '@/constants/constants'
 import { useRouter } from 'next/router'
 
 export interface SiteContextProps {
@@ -13,9 +12,6 @@ export interface SiteContextProps {
   isCompaniesFound: boolean
   showLinks: boolean
   toggleLinks: () => void
-  theme: string
-  isDarkTheme: boolean
-  toggleTheme: () => void
   isEnglish: boolean
   toggleLanguage: () => void
 }
@@ -33,9 +29,6 @@ const defaultSiteContext = {
   isCompaniesFound: false,
   showLinks: false,
   toggleLinks: () => {},
-  theme: LIGHT_THEME,
-  isDarkTheme: false,
-  toggleTheme: () => {},
   isEnglish: true,
   toggleLanguage: () => {},
 }
@@ -53,14 +46,6 @@ export const SiteContextProvider = ({ children }: SiteContextProviderProps) => {
   //Navbar
   const [showLinks, setShowLinks] = useState(false)
   const toggleLinks = () => setShowLinks(!showLinks)
-
-  // Theme
-  const [theme, setTheme] = useState(LIGHT_THEME)
-
-  const isDarkTheme = theme === DARK_THEME
-
-  const toggleTheme = () =>
-    setTheme(theme === LIGHT_THEME ? DARK_THEME : LIGHT_THEME)
 
   // Language
   const router = useRouter()
@@ -84,9 +69,6 @@ export const SiteContextProvider = ({ children }: SiteContextProviderProps) => {
         isCompaniesFound,
         showLinks,
         toggleLinks,
-        theme,
-        isDarkTheme,
-        toggleTheme,
         isEnglish,
         toggleLanguage,
       }}>

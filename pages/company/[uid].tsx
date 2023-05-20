@@ -3,7 +3,7 @@ import { CompanyTable } from '@/components/company/company-table'
 import Link from 'next/link'
 import { SEARCH_PATH } from '@/constants/constants'
 import { useTranslate } from '@/translations/useTranslate'
-import { API_ENDPOINT_COMAPNIES } from '../../constants/constants'
+import { API_ENDPOINT_COMAPNIES } from '@/constants/constants'
 
 interface CompanyProps {
   selectedCompany: {

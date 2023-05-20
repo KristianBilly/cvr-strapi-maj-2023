@@ -13,12 +13,9 @@ export const NavbarLinks = ({
   linksContainerRef,
   linksRef,
 }: NavbarLinksProps) => {
-  const { isDarkTheme, toggleTheme, toggleLanguage } = useSiteContext()
+  const { toggleLanguage } = useSiteContext()
   const { t } = useTranslate()
 
-  const themeButton = isDarkTheme
-    ? t('navbar.theme.light')
-    : t('navbar.theme.dark')
   const languageButton = t('navbar.language')
 
   return (
@@ -28,11 +25,6 @@ export const NavbarLinks = ({
       <ul
         className="links"
         ref={linksRef}>
-        <button
-          className="theme-btn"
-          onClick={() => toggleTheme()}>
-          {themeButton}
-        </button>
         <button
           className="theme-btn"
           onClick={() => toggleLanguage()}>

@@ -1,3 +1,4 @@
+import 'styles/global-styling.css'
 import 'styles/main.scss'
 import { Layout } from 'components/layout/layout'
 import { SiteContextProvider } from 'context/site-context'

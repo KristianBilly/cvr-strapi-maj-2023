@@ -36,12 +36,8 @@
       border: 0;
 
       @include breakpoint-md-down {
-        &:first-child {
-          padding-top: 0;
-        }
-        &:last-child {
-          padding-bottom: 1rem;
-        }
+        padding-top: 0;
+        padding-bottom: 1rem;
       }
     }
   }
