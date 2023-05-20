@@ -4,8 +4,8 @@ import React, { createContext, useContext, useState } from 'react'
 import { useRouter } from 'next/router'
 
 export interface SiteContextProps {
-  companies: any[]
-  setCompanies: (companies: any[]) => void
+  // companies:
+  // setCompanies:
   searchField: string
   setSearchField: (searchField: string) => void
   isSearchFieldEmpty: boolean
@@ -57,7 +57,6 @@ export const SiteContextProvider = ({ children }: SiteContextProviderProps) => {
     router.push(router.pathname, router.asPath, { locale: newLocale })
   }
 
-  //Ismail
   return (
     <SiteContext.Provider
       value={{

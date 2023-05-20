@@ -1,5 +1,4 @@
 // @ts-nocheck
-// Ismail
 
 import { useRouter } from 'next/router'
 import da from '@/translations/da.json'

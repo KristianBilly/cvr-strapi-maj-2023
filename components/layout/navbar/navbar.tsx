@@ -1,15 +1,15 @@
 // @ts-nocheck
-
 import { useRef, useEffect, MutableRefObject } from 'react'
 import { LANDING_PAGE_PATH } from '@/constants/constants'
 import { TextLink } from '@/components/other/text-link'
-import { NavbarLinks } from '@/components/layout/navbar/navbar-links'
 import { useSiteContext } from '@/context/site-context'
+import { useTranslate } from '@/translations/useTranslate'
 
 export const Navbar = () => {
-  const { showLinks, toggleLinks } = useSiteContext()
+  const { showLinks, toggleLinks, toggleLanguage } = useSiteContext()
   const linksContainerRef = useRef() as MutableRefObject<HTMLDivElement>
   const linksRef = useRef() as MutableRefObject<HTMLUListElement>
+  const { t } = useTranslate()
 
   useEffect(() => {
     const linksHeight = linksRef.current.getBoundingClientRect().height
@@ -37,10 +37,19 @@ export const Navbar = () => {
             />
           </button>
         </div>
-        <NavbarLinks
-          linksContainerRef={linksContainerRef}
-          linksRef={linksRef}
-        />
+        <div
+          className="links-container"
+          ref={linksContainerRef}>
+          <ul
+            className="links"
+            ref={linksRef}>
+            <button
+              className="nav-links"
+              onClick={() => toggleLanguage()}>
+              {t('navbar.language')}
+            </button>
+          </ul>
+        </div>
       </div>
     </nav>
   )

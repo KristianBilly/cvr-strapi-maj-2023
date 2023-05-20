@@ -8,7 +8,6 @@ interface MainContainerProps {
   showLinks?: boolean
 }
 
-//Ismail
 export const MainContainer = ({ children }: MainContainerProps) => {
   const { showLinks } = useSiteContext()
 

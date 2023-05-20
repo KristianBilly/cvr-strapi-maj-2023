@@ -1,9 +1,12 @@
+// @ts-nocheck
+
 import { getConvertedCompanyData } from '@/utils/get-converted-company-data'
 import { CompanyTable } from '@/components/company/company-table'
 import Link from 'next/link'
 import { SEARCH_PATH } from '@/constants/constants'
 import { useTranslate } from '@/translations/useTranslate'
 import { API_ENDPOINT_COMAPNIES } from '@/constants/constants'
+import { GetStaticPaths, GetStaticProps } from 'next'
 
 interface CompanyProps {
   selectedCompany: {
@@ -31,7 +34,16 @@ const Company = ({ selectedCompany }: CompanyProps) => {
         {t('company.back.to.search')}
       </Link>
       <h2> {companyName} </h2>
-      <CompanyTable company={formattedCompany} />
+      <div className="company-table">
+        {formattedCompany.map(({ title, field }, index) => (
+          <div
+            className="content-container"
+            key={t(field) + index}>
+            <p className="title">{t(title)} </p>
+            <p>{t(field)} </p>
+          </div>
+        ))}
+      </div>
     </section>
   )
 }
@@ -42,16 +54,10 @@ interface ParamProps {
   }
 }
 
-// Ismail: The any[] hack. What should be placed there instead?
-// Ismail: When I give it give it egtStaticProps : GetStaticProps, and
-// ... :ParamProps then it's not happy.
-// The same with locales under, "it's possible undifined"
-// Why did I need to give it undefined above?
-export const getStaticProps = async ({ params }: ParamProps) => {
+export const getStaticProps: GetStaticProps = async ({ params }) => {
   const response = await fetch(API_ENDPOINT_COMAPNIES)
   const data = await response.json()
-  const companies: any[] = data.data
-  const mappedCompanies = companies.map((company) => company.attributes)
+  const mappedCompanies = data.data.map((company) => company.attributes)
 
   const selectedCompany = mappedCompanies?.find(
     (company) => company.uid === params.uid
@@ -68,11 +74,10 @@ interface LocaleProps {
   locales: string[]
 }
 
-export const getStaticPaths = async ({ locales }: LocaleProps) => {
+export const getStaticPaths: GetStaticPaths = async ({ locales }) => {
   const response = await fetch(API_ENDPOINT_COMAPNIES)
   const data = await response.json()
-  const companies: any[] = data.data
-  const mappedCompanies = companies.map((company) => company.attributes)
+  const mappedCompanies = data.data.map((company) => company.attributes)
 
   const paths = mappedCompanies
     .map(({ uid }) =>

@@ -11,7 +11,6 @@ interface SearchCompanyProps {
   uid: string
 }
 
-// Ismail
 export const SearchCompany = ({ convertedData, uid }: SearchCompanyProps) => {
   const { t } = useTranslate()
 

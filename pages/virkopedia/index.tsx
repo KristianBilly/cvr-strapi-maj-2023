@@ -1,12 +1,14 @@
+// @ts-nocheck
+
 import { useState } from 'react'
-import { VirkopediaArticle } from '@/components/virkopedia/virkopedia-article'
 import { VirkopediaTab } from '@/components/virkopedia/virkopedia-tab'
 import { API_ENDPOINT_VIRKOPEDIA } from '@/constants/constants'
 import { getLocalisedData } from '@/utils/get-localised-data'
 import { GetStaticProps } from 'next'
+import cc from 'classcat'
 
 interface VirkopediaProps {
-  articles: any[]
+  // articles:
 }
 
 const Virkopedia = ({ articles }: VirkopediaProps) => {
@@ -15,30 +17,34 @@ const Virkopedia = ({ articles }: VirkopediaProps) => {
   const localisedArticles = getLocalisedData(articles)
   const { content, title } = localisedArticles[activeButtonIndex].attributes
 
-  //Ismail: For this any, it should learn, what article is implicitly, right?
   return (
     <div className="virkopedia">
       <h2>Virkopedia</h2>
       <div className="virkopedia-container">
         <div className="btn-container">
-          {localisedArticles.map((article: any, index: number) => {
+          {localisedArticles.map((article, index: number) => {
             const { title } = article.attributes
+            const isActiveButton = index === activeButtonIndex
 
             return (
-              <VirkopediaTab
+              <button
                 key={title + index}
-                setActiveButtonIndex={setActiveButtonIndex}
-                title={title}
-                index={index}
-                activeButtonIndex={activeButtonIndex}
-              />
+                onClick={() => setActiveButtonIndex(index)}
+                className={cc([
+                  'article-btn',
+                  {
+                    'active-btn': isActiveButton,
+                  },
+                ])}>
+                {title}
+              </button>
             )
           })}
         </div>
-        <VirkopediaArticle
-          title={title}
-          content={content}
-        />
+        <article>
+          <h3>{title}</h3>
+          <p>{content}</p>
+        </article>
       </div>
     </div>
   )

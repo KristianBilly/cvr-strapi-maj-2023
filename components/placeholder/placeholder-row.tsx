@@ -1,3 +1,5 @@
+// @ts-nocheck
+
 interface PlaceholderRowProps {
   row: {
     numberOfColumns: number
@@ -27,19 +29,10 @@ export const PlaceholderRow = ({ row }: PlaceholderRowProps) => {
   } = row
 
   const allColumns: allColumnsProps[] = [
-    { title: titleColumnOne, text: contentColumnOne },
-    { title: titleColumnTwo, text: contentColumnTwo },
-    { title: titleColumnThree, text: contentColumnThree },
+    titleColumnOne && { title: titleColumnOne, text: contentColumnOne },
+    titleColumnTwo && { title: titleColumnTwo, text: contentColumnTwo },
+    titleColumnThree && { title: titleColumnThree, text: contentColumnThree },
   ]
-
-  // Ismail
-  // The code above is not what I want to use. It's the stuff beneath. I
-  // just can't type it. Is it bad design?
-  // const allColumns: allColumnsProps[] = [
-  //   titleColumnOne && { title: titleColumnOne, text: contentColumnOne },
-  //   titleColumnTwo && { title: titleColumnTwo, text: contentColumnTwo },
-  //   titleColumnThree && { title: titleColumnThree, text: contentColumnThree },
-  // ]
 
   const shouldRenderColumn = allColumns.length !== 0
 

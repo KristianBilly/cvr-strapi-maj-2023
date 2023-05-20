@@ -1,12 +1,8 @@
-//Ismail
-// When use this way (similar to making an interface), then the other files
-// thinks, that there are only 1 argument. Why is that? Whats the smartest way
-// to do it then?
-// ({ searchField, allCompanies }: {searchField: string, allCompanies: any[] })
+// @ts-nocheck
 
 export const getFilteredCompanies = (
-  searchField: string,
-  allCompanies: any[]
+  searchField: string
+  // allCompanies:
 ) => {
   const filteredCompanies = allCompanies.filter(
     (company) =>

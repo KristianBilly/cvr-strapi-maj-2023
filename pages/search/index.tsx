@@ -8,9 +8,8 @@ import { API_ENDPOINT_COMAPNIES } from '@/constants/constants'
 import { getLocalisedData } from '@/utils/get-localised-data'
 import { GetStaticProps } from 'next'
 
-//Ismail: what about here. What kind of detail? is any fine?
 interface SearchWrapperProps {
-  companies: any[]
+  // companies:
 }
 
 const SearchWrapper = ({ companies }: SearchWrapperProps) => {

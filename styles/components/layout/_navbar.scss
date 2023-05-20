@@ -25,11 +25,11 @@
       padding: 0;
     }
 
-    .nav-links,
-    .theme-btn {
+    .nav-links {
       @include link;
       cursor: pointer;
-      font-size: 1rem;
+      font-size: 1.1rem;
+      font-weight: 700;
       letter-spacing: 0.1rem;
       display: block;
       padding: 0.5rem 1rem;

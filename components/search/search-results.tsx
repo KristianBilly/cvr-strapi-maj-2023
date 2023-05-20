@@ -8,10 +8,9 @@ import { getConvertedSearchData } from '@/utils/get-converted-search-data'
 import { useTranslate } from '@/translations/useTranslate'
 
 interface SearchResultsProps {
-  localisedCompanies: any[]
+  // localisedCompanies:
 }
 
-// Ismail
 export const SearchResults = ({ localisedCompanies }: SearchResultsProps) => {
   const {
     searchField,
