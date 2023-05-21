@@ -1,0 +1,1 @@
+- Lær at lave forward refs, så der kan bruges Link fra Next.

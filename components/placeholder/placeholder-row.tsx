@@ -1,6 +1,6 @@
 // @ts-nocheck
+import { BaseLayout } from '@/styles/base-layout'
 import { PlaceholderWrapper, TitleContainer } from './style'
-import { ComponentsContainer } from '@/styles/shared-styles'
 interface PlaceholderRowProps {
   row: {
     numberOfColumns: number
@@ -43,10 +43,10 @@ export const PlaceholderRow = ({ row }: PlaceholderRowProps) => {
         <PlaceholderWrapper>
           {allColumns.slice(0, numberOfColumns).map((column, index) => {
             return (
-              <ComponentsContainer key={numberOfColumns + index}>
+              <BaseLayout key={numberOfColumns + index}>
                 <TitleContainer>{column.title}</TitleContainer>
                 <p>{column.text}</p>
-              </ComponentsContainer>
+              </BaseLayout>
             )
           })}
         </PlaceholderWrapper>

@@ -1,5 +1,6 @@
 // @ts-nocheck
 
+import styled from '@emotion/styled'
 import { TextInput } from '@/styles/text-input'
 import { SearchResults } from '@/components/search/search-results'
 import { useSiteContext } from '@/context/site-context'
@@ -7,7 +8,9 @@ import { useTranslate } from '@/translations/useTranslate'
 import { API_ENDPOINT_COMAPNIES } from '@/constants/constants'
 import { getLocalisedData } from '@/utils/get-localised-data'
 import { GetStaticProps } from 'next'
-import { ComponentsContainer } from '@/styles/shared-styles'
+import { BaseLayout } from '@/styles/base-layout'
+import { Text } from '@/styles/text'
+import { fontWeights, textFontSizes } from '@/styles/shared-styles'
 
 interface SearchWrapperProps {
   // companies:
@@ -20,9 +23,15 @@ const SearchWrapper = ({ companies }: SearchWrapperProps) => {
   const localisedCompanies = getLocalisedData(companies)
 
   return (
-    <ComponentsContainer>
-      <div className="search-container">
-        <h2 className="search-title">{t('search.title')} </h2>
+    <BaseLayout>
+      <SearchContainer>
+        <SearchTitleContainer>
+          <Text
+            fontSize={textFontSizes.h2}
+            fontWeight={fontWeights.bold}>
+            {t('search.title')}{' '}
+          </Text>
+        </SearchTitleContainer>
         <TextInput
           search
           type="search"
@@ -32,8 +41,8 @@ const SearchWrapper = ({ companies }: SearchWrapperProps) => {
           autoFocus
         />
         <SearchResults localisedCompanies={localisedCompanies} />
-      </div>
-    </ComponentsContainer>
+      </SearchContainer>
+    </BaseLayout>
   )
 }
 
@@ -49,3 +58,12 @@ export const getStaticProps: GetStaticProps = async () => {
 }
 
 export default SearchWrapper
+
+export const SearchContainer = styled.div`
+  width: 100%;
+`
+
+export const SearchTitleContainer = styled.div`
+  text-align: center;
+  margin-bottom: 2rem;
+`

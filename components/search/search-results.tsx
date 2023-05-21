@@ -1,11 +1,14 @@
 // @ts-nocheck
 
+import styled from '@emotion/styled'
 import { useEffect } from 'react'
 import { SearchCompany } from '@/components/search/search-company'
 import { useSiteContext } from '@/context/site-context'
 import { getFilteredCompanies } from '@/utils/get-filtered-companies'
 import { getConvertedSearchData } from '@/utils/get-converted-search-data'
 import { useTranslate } from '@/translations/useTranslate'
+import { Text } from '@/styles/text'
+import { fontWeights, textFontSizes } from '@/styles/shared-styles'
 
 interface SearchResultsProps {
   // localisedCompanies:
@@ -32,7 +35,15 @@ export const SearchResults = ({ localisedCompanies }: SearchResultsProps) => {
   }, [searchField])
 
   if (!isCompaniesFound && !isSearchFieldEmpty)
-    return <h3 className="message-title">{t('company.no.companies')}</h3>
+    return (
+      <MessageTitleContainer>
+        <Text
+          fontSize={textFontSizes.h3}
+          fontWeights={fontWeights.bold}>
+          {t('company.no.companies')}
+        </Text>
+      </MessageTitleContainer>
+    )
 
   if (isCompaniesFound)
     return (
@@ -54,3 +65,7 @@ export const SearchResults = ({ localisedCompanies }: SearchResultsProps) => {
 
   return <></>
 }
+
+export const MessageTitleContainer = styled.div`
+  margin: 0.75rem 0;
+`

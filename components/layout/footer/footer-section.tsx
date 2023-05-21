@@ -1,25 +1,25 @@
+// @ts-nocheck
+
 import { useTranslate } from '@/translations/useTranslate'
+import { FooterLink, FooterLinksContainer } from './footer'
 
 interface FooterSectionProps {
   columnLinks: string[]
-  className: string
+  index: number
 }
 
-export const FooterSection = ({
-  columnLinks,
-  className,
-}: FooterSectionProps) => {
+export const FooterSection = ({ columnLinks }: FooterSectionProps) => {
   const { t } = useTranslate()
 
   return (
-    <section className="footer-section footer-links-container">
-      {columnLinks.map((paragraph) => (
-        <p
-          className={t(className)}
+    <FooterLinksContainer>
+      {columnLinks.map((paragraph, index) => (
+        <FooterLink
+          index={index}
           key={paragraph}>
           {t(paragraph)}
-        </p>
+        </FooterLink>
       ))}
-    </section>
+    </FooterLinksContainer>
   )
 }

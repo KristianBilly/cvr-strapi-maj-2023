@@ -1,13 +1,15 @@
 // @ts-nocheck
 
+import styled from '@emotion/styled'
 import { getConvertedCompanyData } from '@/utils/get-converted-company-data'
-import { CompanyTable } from '@/components/company/company-table'
-import Link from 'next/link'
 import { SEARCH_PATH } from '@/constants/constants'
 import { useTranslate } from '@/translations/useTranslate'
 import { API_ENDPOINT_COMAPNIES } from '@/constants/constants'
 import { GetStaticPaths, GetStaticProps } from 'next'
-import { ComponentsContainer } from '@/styles/shared-styles'
+import { BaseLayout } from '@/styles/base-layout'
+import { StyledLink } from '@/styles/styled-link'
+import { Text } from '@/styles/text'
+import { fontWeights, textFontSizes } from '@/styles/shared-styles'
 
 interface CompanyProps {
   selectedCompany: {
@@ -28,24 +30,28 @@ const Company = ({ selectedCompany }: CompanyProps) => {
   if (!formattedCompany) return <h2>{t('companies.nocompanies')}</h2>
 
   return (
-    <ComponentsContainer>
-      <Link
-        className="back-to-search"
-        href={SEARCH_PATH}>
-        {t('company.back.to.search')}
-      </Link>
-      <h2> {companyName} </h2>
-      <div className="company-table">
+    <BaseLayout>
+      <BackToSearchContainer>
+        <StyledLink href={SEARCH_PATH}>
+          {t('company.back.to.search')}
+        </StyledLink>
+      </BackToSearchContainer>
+      <Text
+        fontSize={textFontSizes.h2}
+        fontWeight={fontWeights.bold}>
+        {companyName}
+      </Text>
+      <CompanyContainer>
         {formattedCompany.map(({ title, field }, index) => (
-          <div
-            className="content-container"
-            key={t(field) + index}>
-            <p className="title">{t(title)} </p>
-            <p>{t(field)} </p>
-          </div>
+          <CompanyTable key={t(field) + index}>
+            <CompanyTitleContainer>
+              <Text fontWeight={fontWeights.bold}>{t(title)} </Text>
+            </CompanyTitleContainer>
+            <Text>{t(field)} </Text>
+          </CompanyTable>
         ))}
-      </div>
-    </ComponentsContainer>
+      </CompanyContainer>
+    </BaseLayout>
   )
 }
 
@@ -96,3 +102,32 @@ export const getStaticPaths: GetStaticPaths = async ({ locales }) => {
 }
 
 export default Company
+
+export const BackToSearchContainer = styled.div`
+  align-self: flex-start;
+`
+
+export const CompanyContainer = styled.div`
+  line-height: 1.5rem;
+  border: solid 1px black;
+  width: 100%;
+  padding: 1.5rem;
+  margin: 1rem;
+`
+
+export const CompanyTable = styled.div`
+  margin-bottom: 1.25rem;
+  display: flex;
+
+  @media (max-width: 576px) {
+    display: block;
+  }
+`
+
+const CompanyTitleContainer = styled.div`
+  flex: 0 0 200px;
+
+  @media (max-width: 576px) {
+    flex: 0 0 1;
+  }
+`

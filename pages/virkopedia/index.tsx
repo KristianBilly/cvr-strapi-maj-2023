@@ -5,7 +5,11 @@ import { API_ENDPOINT_VIRKOPEDIA } from '@/constants/constants'
 import { getLocalisedData } from '@/utils/get-localised-data'
 import { GetStaticProps } from 'next'
 import cc from 'classcat'
-import { ComponentsContainer } from '@/styles/shared-styles'
+import { BaseLayout } from '@/styles/base-layout'
+import { fontWeights, textFontSizes } from '@/styles/shared-styles'
+import { Text } from '@/styles/text'
+import styled from '@emotion/styled'
+import { StyledButton } from '@/styles/styled-button'
 
 interface VirkopediaProps {
   // articles:
@@ -18,35 +22,39 @@ const Virkopedia = ({ articles }: VirkopediaProps) => {
   const { content, title } = localisedArticles[activeButtonIndex].attributes
 
   return (
-    <ComponentsContainer>
-      <h2>Virkopedia</h2>
-      <div className="virkopedia-container">
-        <div className="btn-container">
+    <BaseLayout>
+      <Text
+        fontSize={textFontSizes.h2}
+        fontWeight={fontWeights.bold}>
+        Virkopedia
+      </Text>
+      <VirkopediaContainer>
+        <VirkopediaButtonContainer>
           {localisedArticles.map((article, index: number) => {
             const { title } = article.attributes
             const isActiveButton = index === activeButtonIndex
 
             return (
-              <button
+              <ArticleButton
+                isActiveButton={isActiveButton}
                 key={title + index}
-                onClick={() => setActiveButtonIndex(index)}
-                className={cc([
-                  'article-btn',
-                  {
-                    'active-btn': isActiveButton,
-                  },
-                ])}>
+                onClick={() => setActiveButtonIndex(index)}>
                 {title}
-              </button>
+              </ArticleButton>
             )
           })}
-        </div>
+        </VirkopediaButtonContainer>
         <article>
-          <h3>{title}</h3>
-          <p>{content}</p>
+          <Text
+            fontSize={textFontSizes.h3}
+            fontWeight={fontWeights.bold}>
+            {title}
+          </Text>
+
+          <ArticleContent>{content}</ArticleContent>
         </article>
-      </div>
-    </ComponentsContainer>
+      </VirkopediaContainer>
+    </BaseLayout>
   )
 }
 
@@ -62,3 +70,47 @@ export const getStaticProps: GetStaticProps = async () => {
 }
 
 export default Virkopedia
+
+export const ArticleContent = styled(Text)`
+  font-size: 0.9rem;
+  margin-bottom: 1.25rem;
+  line-height: 2rem;
+`
+
+export const VirkopediaContainer = styled.div`
+  display: flex;
+  flex-direction: row;
+  gap: 1rem;
+
+  @media screen and (max-width: 767px) {
+    flex-direction: column;
+  }
+`
+
+const VirkopediaButtonContainer = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  flex: 0 0 content;
+  min-width: 200px;
+
+  @media (max-width: 767px) {
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+  }
+`
+
+const ArticleButton = styled(StyledButton)`
+  text-transform: capitalize;
+  padding: 0.5rem;
+  font-size: 1.25rem;
+  text-decoration: underline;
+  color: ${(props) => (props.isActiveButton ? 'rgb(101, 167, 189);' : 'black')};
+
+  @media (max-width: 767px) {
+    font-size: 1rem;
+  }
+`

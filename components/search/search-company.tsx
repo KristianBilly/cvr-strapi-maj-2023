@@ -1,6 +1,9 @@
 // @ts-nocheck
-import Link from 'next/link'
 import { useTranslate } from '@/translations/useTranslate'
+import { StyledLink } from '@/styles/styled-link'
+import styled from '@emotion/styled'
+import { fontWeights, textFontSizes } from '@/styles/shared-styles'
+import { Text } from '@/styles/text'
 
 interface SearchCompanyProps {
   convertedData: {
@@ -15,22 +18,51 @@ export const SearchCompany = ({ convertedData, uid }: SearchCompanyProps) => {
   const { t } = useTranslate()
 
   return (
-    <Link
-      className="search-company"
-      href={`/company/${uid}`}>
-      <article className="search-article">
+    <StyledLink href={`/company/${uid}`}>
+      <SearchResultContainer>
         {convertedData.map(({ title, paragraphOne, paragraphTwo }, index) => {
           return (
-            <div
-              key={t(title) + index}
-              className="search-content">
-              {title && <h4>{t(title)}</h4>}
-              {paragraphOne && <p>{t(paragraphOne)}</p>}
-              {paragraphTwo && <p>{t(paragraphTwo)}</p>}
-            </div>
+            <SingleSearchResult key={t(title) + index}>
+              {title && (
+                <Text
+                  fontSize={textFontSizes.h4}
+                  fontWeight={fontWeights.bold}>
+                  {t(title)}
+                </Text>
+              )}
+              {paragraphOne && <Text>{t(paragraphOne)}</Text>}
+              {paragraphTwo && <Text>{t(paragraphTwo)}</Text>}
+            </SingleSearchResult>
           )
         })}
-      </article>
-    </Link>
+      </SearchResultContainer>
+    </StyledLink>
   )
 }
+
+export const SearchResultContainer = styled.div`
+  display: flex;
+  flex-direction: row;
+  gap: 1rem;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  margin: 2rem 0;
+  border: solid 1px black;
+  padding: 1.5rem;
+
+  @media (max-width: 767px) {
+    flex-direction: column;
+  }
+`
+
+export const SingleSearchResult = styled.div`
+  flex: 0 0 calc(25% - 1rem);
+
+  @media (max-width: 1000px) {
+    flex: 0 0 calc(50% - 1rem);
+  }
+
+  @media (max-width: 767px) {
+    flex: 0 0 1;
+  }
+`
