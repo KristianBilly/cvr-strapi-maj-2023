@@ -3,7 +3,7 @@
   flex-direction: row;
   gap: 1rem;
 
-  @include breakpoint-md-down {
+  @media screen and (max-width: 767px) {
     flex-direction: column;
   }
 
@@ -22,22 +22,31 @@
   flex: 0 0 content;
   min-width: 200px;
 
-  @include breakpoint-md-down {
+  @media screen and (max-width: 767px) {
     flex-direction: row;
     justify-content: center;
     align-items: center;
   }
 
   .article-btn {
-    @include button($noBorder, $paddingSmallButton, $fontSizeLargeButton);
+    font-family: inherit;
+    cursor: pointer;
+    text-transform: capitalize;
+    border: 0;
+    padding: 0.5rem;
+    font-size: 1.25rem;
+
+    &:hover {
+      color: rgb(101, 167, 189);
+    }
     text-decoration: underline;
 
-    @include breakpoint-md-down {
-      font-size: $fontSizeMediumButton;
+    @media screen and (max-width: 767px) {
+      font-size: 1rem;
     }
   }
 
   .active-btn {
-    color: $hover-color;
+    color: rgb(101, 167, 189);
   }
 }

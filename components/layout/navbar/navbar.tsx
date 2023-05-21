@@ -1,7 +1,7 @@
 // @ts-nocheck
 import { useRef, useEffect, MutableRefObject } from 'react'
 import { LANDING_PAGE_PATH } from '@/constants/constants'
-import { TextLink } from '@/components/other/text-link'
+import { TextLink } from '@/styles/text-link'
 import { useSiteContext } from '@/context/site-context'
 import { useTranslate } from '@/translations/useTranslate'
 

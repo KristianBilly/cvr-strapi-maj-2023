@@ -13,8 +13,11 @@ export const fontWeights = {
   bold: 700,
 }
 
-const styling = {
-  boxboxShadow: '0 0 0.6rem 0 #888888',
+export const styling = {
+  boxShadow: '0 0 0.6rem 0 #888888',
+  transition: 'all 0.2s linear',
+  hoverColor: 'rgb(101, 167, 189)',
+  themeFontAndBorder: '#282c35',
 }
 
 export const ComponentsContainer = styled.div`
@@ -26,56 +29,6 @@ export const ComponentsContainer = styled.div`
   align-items: center;
   min-height: 200px;
   padding: 2.5rem;
-  box-shadow: ${styling.boxboxShadow};
+  box-shadow: ${styling.boxShadow};
   margin: 1rem 0;
 `
-
-export const Placeholder = styled.div`
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-  width: 90vw;
-  max-width: 1000px;
-  align-items: center;
-  min-height: 200px;
-  padding: 2.5rem;
-  box-shadow: 0 0 0.6rem 0 #888888;
-  margin: 1rem 0;
-
-  flex: ${(props) => {
-    if (props.row === 2) {
-      return '0 0 calc(50% - 1rem)'
-    }
-    if (props.row === 3) {
-      return '0 0 calc(33.33% - 1rem)'
-    }
-    return
-  }};
-
-  @media (max-width: ${breakpoints.md}) {
-    flex: ${(props) => {
-      if (props.row === 2) {
-        return '0 0 1)'
-      }
-      if (props.row === 3) {
-        return '0 0 1)'
-      }
-      return
-    }};
-  }
-
-  h3 {
-    justify-content: right;
-    margin-bottom: 0.5rem;
-  }
-`
-
-// const johnny = styled.div({
-//   fontS
-// })
-
-// export const ComponentsContainerTwo =
-
-// // const style = styled.div({
-// //   fontSize: '1.5rem',
-// // })

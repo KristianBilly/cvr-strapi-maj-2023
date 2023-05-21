@@ -3,15 +3,19 @@
 }
 
 .back-to-search {
-  @include link;
+  text-decoration: none;
+
+  &:hover {
+    color: rgb(101, 167, 189);
+  }
   align-self: flex-start;
   font-size: 0.75rem;
-  font-weight: $font-weight-light;
+  font-weight: 350;
 }
 
 .company-table {
   line-height: 1.5rem;
-  border: $border;
+  border: solid 1px black;
   width: 100%;
   padding: 1.5rem;
   margin: 1rem;
@@ -20,16 +24,16 @@
     margin-bottom: 1.25rem;
     display: flex;
 
-    @include breakpoint-sm-down {
+    @media screen and (max-width: 576px) {
       display: block;
     }
   }
 
   .title {
-    font-weight: $font-weight-bold;
+    font-weight: 700;
     flex: 0 0 200px;
 
-    @include breakpoint-sm-down {
+    @media screen and (max-width: 576px) {
       flex: 0 0 1;
     }
   }

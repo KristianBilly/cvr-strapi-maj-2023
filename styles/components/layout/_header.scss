@@ -1,5 +1,6 @@
 .header {
-  @include center-component;
+  width: 90vw;
+  max-width: 1000px;
   margin-top: 2rem;
   padding-left: 0.5rem;
 
@@ -14,6 +15,10 @@
   }
 
   .header-link {
-    @include link;
+    text-decoration: none;
+
+    &:hover {
+      color: rgb(101, 167, 189);
+    }
   }
 }

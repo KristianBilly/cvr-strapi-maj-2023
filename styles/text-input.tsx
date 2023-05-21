@@ -1,4 +1,5 @@
-import cc from 'classcat'
+// @ts-nocheck
+import styled from '@emotion/styled'
 
 interface TextInputProps {
   placeholder: string
@@ -17,13 +18,8 @@ export const TextInput = ({
   search,
   autoFocus,
 }: TextInputProps) => (
-  <input
-    className={cc([
-      'text-input',
-      {
-        'search-input': search,
-      },
-    ])}
+  <TextInputWrapper
+    search={search}
     placeholder={placeholder}
     value={value}
     onChange={onChange}
@@ -31,3 +27,12 @@ export const TextInput = ({
     autoFocus={autoFocus}
   />
 )
+
+const TextInputWrapper = styled.input`
+  border: solid 1px black;
+  width: 100%;
+  outline: 0;
+  padding: ${(props) => (props.search ? '1.2rem' : '0.5rem')};
+  margin-bottom: ${(props) => (props.search ? '1rem' : '')};
+  font-size: ${(props) => (props.search ? '1rem' : '')};
+`
