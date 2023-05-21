@@ -1,5 +1,6 @@
 // @ts-nocheck
-
+import { PlaceholderWrapper, TitleContainer } from './style'
+import { ComponentsContainer } from '@/styles/shared-styles'
 interface PlaceholderRowProps {
   row: {
     numberOfColumns: number
@@ -39,18 +40,16 @@ export const PlaceholderRow = ({ row }: PlaceholderRowProps) => {
   return (
     <>
       {shouldRenderColumn && (
-        <div className="placeholder-wrapper">
+        <PlaceholderWrapper>
           {allColumns.slice(0, numberOfColumns).map((column, index) => {
             return (
-              <div
-                key={numberOfColumns + index}
-                className={`placeholder-col-${numberOfColumns}`}>
-                <h3>{column.title}</h3>
+              <ComponentsContainer key={numberOfColumns + index}>
+                <TitleContainer>{column.title}</TitleContainer>
                 <p>{column.text}</p>
-              </div>
+              </ComponentsContainer>
             )
           })}
-        </div>
+        </PlaceholderWrapper>
       )}
     </>
   )

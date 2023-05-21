@@ -7,6 +7,7 @@ import { useTranslate } from '@/translations/useTranslate'
 import { API_ENDPOINT_COMAPNIES } from '@/constants/constants'
 import { getLocalisedData } from '@/utils/get-localised-data'
 import { GetStaticProps } from 'next'
+import { ComponentsContainer } from '@/styles/shared-styles'
 
 interface SearchWrapperProps {
   // companies:
@@ -19,7 +20,7 @@ const SearchWrapper = ({ companies }: SearchWrapperProps) => {
   const localisedCompanies = getLocalisedData(companies)
 
   return (
-    <div className="search">
+    <ComponentsContainer>
       <div className="search-container">
         <h2 className="search-title">{t('search.title')} </h2>
         <TextInput
@@ -32,7 +33,7 @@ const SearchWrapper = ({ companies }: SearchWrapperProps) => {
         />
         <SearchResults localisedCompanies={localisedCompanies} />
       </div>
-    </div>
+    </ComponentsContainer>
   )
 }
 

@@ -1,11 +1,11 @@
 // @ts-nocheck
 
 import { useState } from 'react'
-import { VirkopediaTab } from '@/components/virkopedia/virkopedia-tab'
 import { API_ENDPOINT_VIRKOPEDIA } from '@/constants/constants'
 import { getLocalisedData } from '@/utils/get-localised-data'
 import { GetStaticProps } from 'next'
 import cc from 'classcat'
+import { ComponentsContainer } from '@/styles/shared-styles'
 
 interface VirkopediaProps {
   // articles:
@@ -18,7 +18,7 @@ const Virkopedia = ({ articles }: VirkopediaProps) => {
   const { content, title } = localisedArticles[activeButtonIndex].attributes
 
   return (
-    <div className="virkopedia">
+    <ComponentsContainer>
       <h2>Virkopedia</h2>
       <div className="virkopedia-container">
         <div className="btn-container">
@@ -46,7 +46,7 @@ const Virkopedia = ({ articles }: VirkopediaProps) => {
           <p>{content}</p>
         </article>
       </div>
-    </div>
+    </ComponentsContainer>
   )
 }
 

@@ -7,6 +7,7 @@ import { SEARCH_PATH } from '@/constants/constants'
 import { useTranslate } from '@/translations/useTranslate'
 import { API_ENDPOINT_COMAPNIES } from '@/constants/constants'
 import { GetStaticPaths, GetStaticProps } from 'next'
+import { ComponentsContainer } from '@/styles/shared-styles'
 
 interface CompanyProps {
   selectedCompany: {
@@ -27,7 +28,7 @@ const Company = ({ selectedCompany }: CompanyProps) => {
   if (!formattedCompany) return <h2>{t('companies.nocompanies')}</h2>
 
   return (
-    <section className="company-page">
+    <ComponentsContainer>
       <Link
         className="back-to-search"
         href={SEARCH_PATH}>
@@ -44,7 +45,7 @@ const Company = ({ selectedCompany }: CompanyProps) => {
           </div>
         ))}
       </div>
-    </section>
+    </ComponentsContainer>
   )
 }
 
