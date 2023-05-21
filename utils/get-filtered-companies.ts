@@ -1,9 +1,6 @@
 // @ts-nocheck
 
-export const getFilteredCompanies = (
-  searchField: string
-  // allCompanies:
-) => {
+export const getFilteredCompanies = (searchField, allCompanies) => {
   const filteredCompanies = allCompanies.filter(
     (company) =>
       company.companyName.toLowerCase().includes(searchField.toLowerCase()) ||
