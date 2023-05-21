@@ -6,7 +6,7 @@ import contentData from '@/constants/database.json'
 import { FooterSection } from '@/components/layout/footer/footer-section'
 import { StyledLink } from '@/styles/styled-link'
 import { fontWeights } from '@/styles/shared-styles'
-import { Text } from '@/styles/text'
+import { Text } from '@/styles/styled-text'
 
 const footerData = contentData.footer
 

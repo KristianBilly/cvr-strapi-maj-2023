@@ -3,7 +3,7 @@ import { useTranslate } from '@/translations/useTranslate'
 import { StyledLink } from '@/styles/styled-link'
 import styled from '@emotion/styled'
 import { fontWeights, textFontSizes } from '@/styles/shared-styles'
-import { Text } from '@/styles/text'
+import { Text } from '@/styles/styled-text'
 
 interface SearchCompanyProps {
   convertedData: {

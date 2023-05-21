@@ -1,7 +1,7 @@
 // @ts-nocheck
 import styled from '@emotion/styled'
 
-interface TextInputProps {
+interface StyledTextInputProps {
   placeholder: string
   value: string
   onChange: (e: React.ChangeEvent<HTMLInputElement>) => void
@@ -10,14 +10,14 @@ interface TextInputProps {
   autoFocus?: boolean
 }
 
-export const TextInput = ({
+export const StyledTextInput = ({
   placeholder,
   value,
   onChange,
   type,
   search,
   autoFocus,
-}: TextInputProps) => (
+}: StyledTextInputProps) => (
   <TextInputWrapper
     search={search}
     placeholder={placeholder}

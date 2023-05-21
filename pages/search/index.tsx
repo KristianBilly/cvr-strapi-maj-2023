@@ -1,7 +1,7 @@
 // @ts-nocheck
 
 import styled from '@emotion/styled'
-import { TextInput } from '@/styles/text-input'
+import { StyledTextInput } from '@/styles/styled-text-input'
 import { SearchResults } from '@/components/search/search-results'
 import { useSiteContext } from '@/context/site-context'
 import { useTranslate } from '@/translations/useTranslate'
@@ -9,7 +9,7 @@ import { API_ENDPOINT_COMAPNIES } from '@/constants/constants'
 import { getLocalisedData } from '@/utils/get-localised-data'
 import { GetStaticProps } from 'next'
 import { BaseLayout } from '@/styles/base-layout'
-import { Text } from '@/styles/text'
+import { Text } from '@/styles/styled-text'
 import { fontWeights, textFontSizes } from '@/styles/shared-styles'
 
 interface SearchWrapperProps {
@@ -32,7 +32,7 @@ const SearchWrapper = ({ companies }: SearchWrapperProps) => {
             {t('search.title')}{' '}
           </Text>
         </SearchTitleContainer>
-        <TextInput
+        <StyledTextInput
           search
           type="search"
           value={searchField}

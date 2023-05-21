@@ -7,7 +7,7 @@ import { GetStaticProps } from 'next'
 import cc from 'classcat'
 import { BaseLayout } from '@/styles/base-layout'
 import { fontWeights, textFontSizes } from '@/styles/shared-styles'
-import { Text } from '@/styles/text'
+import { Text } from '@/styles/styled-text'
 import styled from '@emotion/styled'
 import { StyledButton } from '@/styles/styled-button'
 

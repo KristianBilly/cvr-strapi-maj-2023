@@ -1,4 +1,3 @@
-import 'styles/global-styling.css'
 import { Layout } from '@/components/layout/layout'
 import { SiteContextProvider } from '@/context/site-context'
 import { AppProps } from 'next/app'

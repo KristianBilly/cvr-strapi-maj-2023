@@ -8,7 +8,7 @@ import { API_ENDPOINT_COMAPNIES } from '@/constants/constants'
 import { GetStaticPaths, GetStaticProps } from 'next'
 import { BaseLayout } from '@/styles/base-layout'
 import { StyledLink } from '@/styles/styled-link'
-import { Text } from '@/styles/text'
+import { Text } from '@/styles/styled-text'
 import { fontWeights, textFontSizes } from '@/styles/shared-styles'
 
 interface CompanyProps {

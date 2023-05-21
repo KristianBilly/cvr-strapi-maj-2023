@@ -8,7 +8,7 @@ import {
   textFontSizes,
   textLineHeights,
 } from '@/styles/shared-styles'
-import { Text } from '@/styles/text'
+import { Text } from '@/styles/styled-text'
 import { StyledLink } from '@/styles/styled-link'
 
 const headerData = contentData.headers

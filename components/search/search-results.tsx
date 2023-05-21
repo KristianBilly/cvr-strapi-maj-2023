@@ -7,7 +7,7 @@ import { useSiteContext } from '@/context/site-context'
 import { getFilteredCompanies } from '@/utils/get-filtered-companies'
 import { getConvertedSearchData } from '@/utils/get-converted-search-data'
 import { useTranslate } from '@/translations/useTranslate'
-import { Text } from '@/styles/text'
+import { Text } from '@/styles/styled-text'
 import { fontWeights, textFontSizes } from '@/styles/shared-styles'
 
 interface SearchResultsProps {
