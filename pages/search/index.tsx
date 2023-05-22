@@ -9,8 +9,7 @@ import { API_ENDPOINT_COMAPNIES } from '@/constants/constants'
 import { getLocalisedData } from '@/utils/get-localised-data'
 import { GetStaticProps } from 'next'
 import { BaseLayout } from '@/styles/base-layout'
-import { Text } from '@/styles/styled-text'
-import { fontWeights, textFontSizes } from '@/styles/shared-styles'
+import { Typography } from '@mui/material'
 
 interface SearchWrapperProps {
   // companies:
@@ -26,11 +25,7 @@ const SearchWrapper = ({ companies }: SearchWrapperProps) => {
     <BaseLayout>
       <SearchContainer>
         <SearchTitleContainer>
-          <Text
-            fontSize={textFontSizes.h2}
-            fontWeight={fontWeights.bold}>
-            {t('search.title')}{' '}
-          </Text>
+          <Typography variant="h4">{t('search.title')} </Typography>
         </SearchTitleContainer>
         <StyledTextInput
           search

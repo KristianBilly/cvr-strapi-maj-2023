@@ -5,10 +5,10 @@ import { API_ENDPOINT_VIRKOPEDIA } from '@/constants/constants'
 import { getLocalisedData } from '@/utils/get-localised-data'
 import { GetStaticProps } from 'next'
 import { BaseLayout } from '@/styles/base-layout'
-import { fontWeights, textFontSizes } from '@/styles/shared-styles'
 import { Text } from '@/styles/styled-text'
 import styled from '@emotion/styled'
 import { StyledButton } from '@/styles/styled-button'
+import { Typography } from '@mui/material'
 
 interface VirkopediaProps {
   // articles:
@@ -22,11 +22,7 @@ const Virkopedia = ({ articles }: VirkopediaProps) => {
 
   return (
     <BaseLayout>
-      <Text
-        fontSize={textFontSizes.h2}
-        fontWeight={fontWeights.bold}>
-        Virkopedia
-      </Text>
+      <Typography>Virkopedia</Typography>
       <VirkopediaContainer>
         <VirkopediaButtonContainer>
           {localisedArticles.map((article, index: number) => {
@@ -44,12 +40,7 @@ const Virkopedia = ({ articles }: VirkopediaProps) => {
           })}
         </VirkopediaButtonContainer>
         <article>
-          <Text
-            fontSize={textFontSizes.h3}
-            fontWeight={fontWeights.bold}>
-            {title}
-          </Text>
-
+          <Typography variant="h3">{title}</Typography>
           <ArticleContent>{content}</ArticleContent>
         </article>
       </VirkopediaContainer>

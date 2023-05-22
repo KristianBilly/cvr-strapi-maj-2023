@@ -2,8 +2,7 @@
 import { useTranslate } from '@/translations/useTranslate'
 import { StyledLink } from '@/styles/styled-link'
 import styled from '@emotion/styled'
-import { fontWeights, textFontSizes } from '@/styles/shared-styles'
-import { Text } from '@/styles/styled-text'
+import { Typography } from '@mui/material'
 
 interface SearchCompanyProps {
   convertedData: {
@@ -23,15 +22,9 @@ export const SearchCompany = ({ convertedData, uid }: SearchCompanyProps) => {
         {convertedData.map(({ title, paragraphOne, paragraphTwo }, index) => {
           return (
             <SingleSearchResult key={t(title) + index}>
-              {title && (
-                <Text
-                  fontSize={textFontSizes.h4}
-                  fontWeight={fontWeights.bold}>
-                  {t(title)}
-                </Text>
-              )}
-              {paragraphOne && <Text>{t(paragraphOne)}</Text>}
-              {paragraphTwo && <Text>{t(paragraphTwo)}</Text>}
+              {title && <Typography variant="h6">{t(title)}</Typography>}
+              {paragraphOne && <Typography>{t(paragraphOne)}</Typography>}
+              {paragraphTwo && <Typography>{t(paragraphTwo)}</Typography>}
             </SingleSearchResult>
           )
         })}

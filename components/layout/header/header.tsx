@@ -2,14 +2,9 @@
 import { useTranslate } from '@/translations/useTranslate'
 import contentData from '@/constants/database.json'
 import styled from '@emotion/styled'
-import {
-  fontWeights,
-  headerMargins,
-  textFontSizes,
-  textLineHeights,
-} from '@/styles/shared-styles'
-import { Text } from '@/styles/styled-text'
+
 import { StyledLink } from '@/styles/styled-link'
+import { Typography } from '@mui/material'
 
 const headerData = contentData.headers
 
@@ -19,14 +14,7 @@ export const Header = () => {
   return (
     <HeaderWrapper>
       <TitleContainer>
-        <Text
-          fontSize={textFontSizes.h1}
-          fontWeight={fontWeights.h1}
-          lineHeight={textLineHeights.h1}
-          margin={headerMargins.h1}
-          fontWeight={fontWeights.bold}>
-          {t('title')}
-        </Text>
+        <Typography variant="h4">{t('title')}</Typography>
       </TitleContainer>
       <HeaderContainer>
         {headerData.map(({ textKey, link }, index) => (

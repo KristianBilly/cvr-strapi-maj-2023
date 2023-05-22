@@ -8,8 +8,7 @@ import { API_ENDPOINT_COMAPNIES } from '@/constants/constants'
 import { GetStaticPaths, GetStaticProps } from 'next'
 import { BaseLayout } from '@/styles/base-layout'
 import { StyledLink } from '@/styles/styled-link'
-import { Text } from '@/styles/styled-text'
-import { fontWeights, textFontSizes } from '@/styles/shared-styles'
+import { Typography } from '@mui/material'
 
 interface CompanyProps {
   selectedCompany: {
@@ -36,18 +35,14 @@ const Company = ({ selectedCompany }: CompanyProps) => {
           {t('company.back.to.search')}
         </StyledLink>
       </BackToSearchContainer>
-      <Text
-        fontSize={textFontSizes.h2}
-        fontWeight={fontWeights.bold}>
-        {companyName}
-      </Text>
+      <Typography variant="h2">{companyName}</Typography>
       <CompanyContainer>
         {formattedCompany.map(({ title, field }, index) => (
           <CompanyTable key={t(field) + index}>
             <CompanyTitleContainer>
-              <Text fontWeight={fontWeights.bold}>{t(title)} </Text>
+              <Typography>{t(title)} </Typography>
             </CompanyTitleContainer>
-            <Text>{t(field)} </Text>
+            <Typography>{t(field)} </Typography>
           </CompanyTable>
         ))}
       </CompanyContainer>
