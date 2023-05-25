@@ -1,7 +1,8 @@
 // @ts-nocheck
 
 import { useTranslate } from '@/translations/useTranslate'
-import { FooterLink, FooterLinksContainer } from './footer'
+import { FooterLinksContainer } from './footer'
+import { Typography } from '@mui/material'
 
 interface FooterSectionProps {
   columnLinks: string[]
@@ -13,13 +14,35 @@ export const FooterSection = ({ columnLinks }: FooterSectionProps) => {
 
   return (
     <FooterLinksContainer>
-      {columnLinks.map((paragraph, index) => (
-        <FooterLink
-          index={index}
-          key={paragraph}>
-          {t(paragraph)}
-        </FooterLink>
-      ))}
+      {columnLinks.map((paragraph, index) => {
+        const shouldRenderBold = index === 0
+        console.log(index)
+        console.log('shouldRenderBold 2', shouldRenderBold)
+
+        return (
+          <CustomTypography
+            shouldRenderBold={shouldRenderBold}
+            // variant={shouldRenderBold ? 'h5' : 'body1'}
+            index={index}
+            key={paragraph}>
+            {t(paragraph)}
+          </CustomTypography>
+        )
+      })}
     </FooterLinksContainer>
   )
+}
+
+export const CustomTypography = ({ shouldRenderBold, children }) => {
+  const fontWeight = shouldRenderBold ? 'h1' : 'body1'
+  console.log('fontWeight', fontWeight)
+  console.log('shouldrenderbold', shouldRenderBold)
+
+  const typographyStyle = {
+    fontWeight: fontWeight,
+  }
+
+  console.log('typographyStyle', typographyStyle)
+
+  return <Typography style={typographyStyle}>{children}</Typography>
 }

@@ -5,8 +5,6 @@ import { LANDING_PAGE_PATH } from '@/constants/constants'
 import contentData from '@/constants/database.json'
 import { FooterSection } from '@/components/layout/footer/footer-section'
 import { StyledLink } from '@/styles/styled-link'
-import { fontWeights } from '@/styles/shared-styles'
-import { Text } from '@/styles/styled-text'
 
 const footerData = contentData.footer
 
@@ -80,9 +78,4 @@ export const FooterLinksContainer = styled(FooterSectionContainer)`
   gap: 1rem;
   align-items: center;
   justify-content: center;
-`
-
-export const FooterLink = styled(Text)`
-  font-weight: ${(props) =>
-    props.index === 0 ? fontWeights.bold : fontWeights.normal};
 `
