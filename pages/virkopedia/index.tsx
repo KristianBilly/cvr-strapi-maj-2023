@@ -5,7 +5,6 @@ import { API_ENDPOINT_VIRKOPEDIA } from '@/constants/constants'
 import { getLocalisedData } from '@/utils/get-localised-data'
 import { GetStaticProps } from 'next'
 import { BaseLayout } from '@/styles/base-layout'
-import { Text } from '@/styles/styled-text'
 import styled from '@emotion/styled'
 import { StyledButton } from '@/styles/styled-button'
 import { Typography } from '@mui/material'
@@ -22,7 +21,7 @@ const Virkopedia = ({ articles }: VirkopediaProps) => {
 
   return (
     <BaseLayout>
-      <Typography>Virkopedia</Typography>
+      <Typography variant='h3' >Virkopedia</Typography>
       <VirkopediaContainer>
         <VirkopediaButtonContainer>
           {localisedArticles.map((article, index: number) => {
@@ -40,7 +39,7 @@ const Virkopedia = ({ articles }: VirkopediaProps) => {
           })}
         </VirkopediaButtonContainer>
         <article>
-          <Typography variant="h3">{title}</Typography>
+          <Typography variant="h5">{title}</Typography>
           <ArticleContent>{content}</ArticleContent>
         </article>
       </VirkopediaContainer>
@@ -61,10 +60,10 @@ export const getStaticProps: GetStaticProps = async () => {
 
 export default Virkopedia
 
-export const ArticleContent = styled(Text)`
+export const ArticleContent = styled(Typography)`
   font-size: 0.9rem;
   margin-bottom: 1.25rem;
-  line-height: 2rem;
+  line-height: 1.5rem;
 `
 
 export const VirkopediaContainer = styled.div`

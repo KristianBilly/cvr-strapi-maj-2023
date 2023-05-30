@@ -1,6 +1,7 @@
 // @ts-nocheck
 import { BaseLayout } from '@/styles/base-layout'
 import { PlaceholderWrapper, TitleContainer } from './style'
+import { Typography } from '@mui/material'
 interface PlaceholderRowProps {
   row: {
     numberOfColumns: number
@@ -45,7 +46,7 @@ export const PlaceholderRow = ({ row }: PlaceholderRowProps) => {
             return (
               <BaseLayout key={numberOfColumns + index}>
                 <TitleContainer>{column.title}</TitleContainer>
-                <p>{column.text}</p>
+                <Typography variant="p" >{column.text}</Typography>
               </BaseLayout>
             )
           })}

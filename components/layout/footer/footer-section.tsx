@@ -16,33 +16,16 @@ export const FooterSection = ({ columnLinks }: FooterSectionProps) => {
     <FooterLinksContainer>
       {columnLinks.map((paragraph, index) => {
         const shouldRenderBold = index === 0
-        console.log(index)
-        console.log('shouldRenderBold 2', shouldRenderBold)
 
         return (
-          <CustomTypography
-            shouldRenderBold={shouldRenderBold}
-            // variant={shouldRenderBold ? 'h5' : 'body1'}
+          <Typography
+            variant={shouldRenderBold ? 'h5' : 'body1'}
             index={index}
             key={paragraph}>
             {t(paragraph)}
-          </CustomTypography>
+          </Typography>
         )
       })}
     </FooterLinksContainer>
   )
-}
-
-export const CustomTypography = ({ shouldRenderBold, children }) => {
-  const fontWeight = shouldRenderBold ? 'h1' : 'body1'
-  console.log('fontWeight', fontWeight)
-  console.log('shouldrenderbold', shouldRenderBold)
-
-  const typographyStyle = {
-    fontWeight: fontWeight,
-  }
-
-  console.log('typographyStyle', typographyStyle)
-
-  return <Typography style={typographyStyle}>{children}</Typography>
 }

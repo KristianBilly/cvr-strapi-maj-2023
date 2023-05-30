@@ -26,7 +26,7 @@ const Company = ({ selectedCompany }: CompanyProps) => {
   const formattedCompany = getConvertedCompanyData(selectedCompany)
   const companyName = t(selectedCompany?.companyName)
 
-  if (!formattedCompany) return <h2>{t('companies.nocompanies')}</h2>
+  if (!formattedCompany) return <Typography variant='h2' >{t('companies.nocompanies')}</Typography>
 
   return (
     <BaseLayout>
